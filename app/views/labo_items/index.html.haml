@@ -1,0 +1,41 @@
+%h1 Listing labo_items
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th Description
+      %th Image
+      %th Category
+      %th Brand
+      %th Size
+      %th Condition
+      %th Postage player
+      %th Prefecture
+      %th Handling times
+      %th
+      %th
+      %th
+
+  %tbody
+    - @labo_items.each do |labo_item|
+      %tr
+        %td= labo_item.name
+        %td= labo_item.price
+        %td= labo_item.description
+        %td= labo_item.image
+        %td= labo_item.category
+        %td= labo_item.brand
+        %td= labo_item.size
+        %td= labo_item.condition
+        %td= labo_item.postage_player
+        %td= labo_item.prefecture
+        %td= labo_item.handling_times
+        %td= link_to 'Show', labo_item
+        %td= link_to 'Edit', edit_labo_item_path(labo_item)
+        %td= link_to 'Destroy', labo_item, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Labo item', new_labo_item_path

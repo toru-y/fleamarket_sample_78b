@@ -1,0 +1,43 @@
+= form_for @labo_item do |f|
+  - if @labo_item.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@labo_item.errors.count, "error")} prohibited this labo_item from being saved:"
+      %ul
+        - @labo_item.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :price
+    = f.number_field :price
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    = f.label :category
+    = f.text_field :category
+  .field
+    = f.label :brand
+    = f.text_field :brand
+  .field
+    = f.label :size
+    = f.text_field :size
+  .field
+    = f.label :condition
+    = f.text_field :condition
+  .field
+    = f.label :postage_player
+    = f.text_field :postage_player
+  .field
+    = f.label :prefecture
+    = f.text_field :prefecture
+  .field
+    = f.label :handling_times
+    = f.text_field :handling_times
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @labo_item.name
+%p
+  %b Price:
+  = @labo_item.price
+%p
+  %b Description:
+  = @labo_item.description
+%p
+  %b Image:
+  = image_tag @labo_item.image.to_s
+%p
+  %b Category:
+  = @labo_item.category
+%p
+  %b Brand:
+  = @labo_item.brand
+%p
+  %b Size:
+  = @labo_item.size
+%p
+  %b Condition:
+  = @labo_item.condition
+%p
+  %b Postage player:
+  = @labo_item.postage_player
+%p
+  %b Prefecture:
+  = @labo_item.prefecture
+%p
+  %b Handling times:
+  = @labo_item.handling_times
+
+= link_to 'Edit', edit_labo_item_path(@labo_item)
+\|
+= link_to 'Back', labo_items_path
