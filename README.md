@@ -60,8 +60,8 @@ Things you may want to cover:
 |comment|text|null: false|
 |created_at|timestamps|null: false|
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 ## purchases
 |Column|Type|Options|
@@ -69,8 +69,8 @@ Things you may want to cover:
 |user|references|null: false, foreign_key: true|
 |item|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :address
 
 ## addresses
@@ -93,13 +93,6 @@ Things you may want to cover:
 |name|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
-|images_id|integer|null: false|
-|size_id|integer|null: false|
-|category_id|integer|null: false|
-|condition_id|integer|null: false|
-|shipping_fee_id|integer|null: false|
-|handling_time_id|integer|null: false|
-|prefecture_id|integer|null: false|
 ### Association
 - has_many :comments
 - has_many :images
@@ -113,5 +106,5 @@ Things you may want to cover:
 |image|string|null: false|
 |item|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :items
+- belongs_to :item
 
