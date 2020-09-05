@@ -93,11 +93,15 @@ Things you may want to cover:
 |name|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
+|size|integer|null: false|
+|category|integer|null: false|
+|condition|integer|null: false|
+|shipping_fee|integer|null: false|
+|handling_time|integer|null: false|
+|prefecture|integer|null: false|
 ### Association
 - has_many :comments
-- has_many :images
 - belongs_to :user
-- belongs_to :size_id
 - belongs_to :active_hash
 
 ## images
