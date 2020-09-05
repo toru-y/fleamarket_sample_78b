@@ -84,7 +84,7 @@ Things you may want to cover:
 |purchases|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :purchases
-- belongs_to :prefecture
+- belongs_to :active_hash
 
 ## items
 |Column|Type|Options|
@@ -101,6 +101,7 @@ Things you may want to cover:
 |prefecture|integer|null: false|
 ### Association
 - has_many :comments
+- has_many :images
 - belongs_to :user
 - belongs_to :active_hash
 
