@@ -1,0 +1,23 @@
+.header
+  .header--inner
+    .search
+      %h1.search__icon
+        %a{href: "#"}
+          %img{src: "assets/material/logo/logo.png"}
+      .search__body
+        %form
+          %input.search--inner{name: "keyword", placeholder: "キーワードから探す", type: "text"}
+          %button.search__button{type: "submit"}
+            .button__img
+              %img{src: "assets/material/icon/icon-search 1.png"}
+    .nav
+      %ul.nav--left
+        %li.nav__category
+          カテゴリー
+        %li.nav__brand
+          ブランド
+      %ul.nav--right
+        %li.login__form
+          ログイン
+        %li.login__form--new
+          新規会員登録
