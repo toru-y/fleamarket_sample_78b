@@ -1,0 +1,69 @@
+/*header部分*/
+.header {
+  display: flex;
+  justify-content: center;
+  .header--inner {
+    max-width: 1000px;
+    width: 100%;
+    min-height: 85px;
+    .search {
+      display: flex;
+      justify-content: center;
+      margin-top: 17px;
+      .search__icon {
+        margin-right: 35px;
+        width: 160px;
+        img {
+          width: 100%;
+        }
+      }
+      .search__body {
+        width: 100%;
+        form {
+          width: 100%;
+          display: flex;
+          margin-top: 2px;
+          .search--inner {
+            width: calc(100% - 40px);
+            height: 33px;
+          }
+          .search__button {
+            background-color: #3CCACE;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: none;
+            width: 40px;
+            img {
+              width: 80%;
+              vertical-align: bottom;
+            }
+          }
+        }
+      }
+    }
+    .nav {
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: small;
+      .nav--left {
+        display: flex;
+        .nav__category {
+          margin-right: 50px;
+        }
+        .nav__brand{
+        }
+      }
+      .nav--right {
+        display: flex;
+        .login__form {
+        }
+        .login__form--new {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
