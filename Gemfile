@@ -71,3 +71,4 @@ gem "font-awesome-sass"
 gem 'payjp'
 gem 'carrierwave'
 gem 'devise'
+gem 'active_hash'
