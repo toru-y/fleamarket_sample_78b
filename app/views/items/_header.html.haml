@@ -19,6 +19,8 @@
       %ul.nav--right
         - if user_signed_in?
           %li.login__form
+            = link_to "サインアウト", destroy_user_session_path, method: :delete
+          %li.login__form--new
             = link_to "マイページ", "#"
         - else
           %li.login__form
