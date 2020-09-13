@@ -39,6 +39,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :comments
 - has_one :credit_card
+- has_one :address
 
 ## credit_card
 |Column|Type|Options|
@@ -71,19 +72,18 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :address
 
 ## addresses
 |Column|Type|Options|
 |------|----|-------|
 |post_code|string|null: false|
-|prefecture|references|null: false, foreign_key: true|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |building_name|string||
 |phone_number|integer||
-|purchases|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :purchases
+- belongs_to :user
 - belongs_to :active_hash
 
 ## items
