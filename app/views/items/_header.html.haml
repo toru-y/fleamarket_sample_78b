@@ -3,13 +3,15 @@
     .search
       %h1.search__icon
         %a{href: "#"}
-          %img{src: "assets/material/logo/logo.png"}
+          = image_tag asset_path("material/logo/logo.png")
+          -# %img{src: "assets/material/logo/logo.png"}
       .search__body
         %form
           %input.search--inner{name: "keyword", placeholder: "キーワードから探す", type: "text"}
           %button.search__button{type: "submit"}
             .button__img
-              %img{src: "assets/material/icon/icon-search 1.png"}
+              = image_tag asset_path("material/icon/icon-search 1.png")
+              -# %img{src: "assets/material/icon/icon-search 1.png"}
     .nav
       %ul.nav--left
         %li.nav__category
@@ -17,7 +19,13 @@
         %li.nav__brand
           ブランド
       %ul.nav--right
-        %li.login__form
-          ログイン
-        %li.login__form--new
-          新規会員登録
+        - if user_signed_in?
+          %li.login__form
+            = link_to "サインアウト", destroy_user_session_path, method: :delete
+          %li.login__form--new
+            = link_to "マイページ", "#"
+        - else
+          %li.login__form
+            = link_to "ログイン", new_user_session_path
+          %li.login__form--new
+            = link_to "新規会員登録", new_user_registration_path

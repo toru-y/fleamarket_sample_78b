@@ -1,0 +1,44 @@
+.single-footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  box-sizing: border-box;
+
+  & nav{
+    height: 12px;
+  }
+  & ol{
+    width: 456px;
+    height: 12px;
+  }
+  & li{
+    display: inline-block;
+    width: 148px;
+    font-size: 12px;
+  }
+  & a{
+    display: block;
+    color: #333;
+  }
+ 
+  &__logo {
+    & img {
+      // width: 80px;
+      height: 50px;
+      margin: 40px auto 0;
+      display: block;
+      color: #333;
+    }
+  }
+
+  & p{
+    margin: 8px 0 0;
+    font-size: 13px;
+  }
+}
