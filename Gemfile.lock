@@ -368,8 +368,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
-  fog-aws
   factory_bot_rails
+  fog-aws
   font-awesome-sass
   haml-rails (<= 2.0.1, <= 1.0)
   jbuilder (~> 2.7)
