@@ -17,7 +17,13 @@
         %li.nav__brand
           ブランド
       %ul.nav--right
-        %li.login__form
-          ログイン
-        %li.login__form--new
-          新規会員登録
+        - if user_signed_in?
+          %li.login__form
+            = link_to "サインアウト", destroy_user_session_path, method: :delete
+          %li.login__form--new
+            = link_to "マイページ", "#"
+        - else
+          %li.login__form
+            = link_to "ログイン", new_user_session_path
+          %li.login__form--new
+            = link_to "新規会員登録", new_user_registration_path
