@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :handling_time
   has_many :images
+  accepts_nested_attributes_for :images
 
-  validates :name, :price, :description, :prefecture, :condition, :shipping_fee, :handling_time,  presence: true
+  validates :name, :price, :description, :prefecture, :condition, :shipping_fee, :handling_time,  presence: true  
 end
