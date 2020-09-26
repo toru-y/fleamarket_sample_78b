@@ -1,3 +1,269 @@
 .main
-  .mainvisual
-  ここからmain
+  %section.mainvisual
+    .content
+      %h2.content__subtitle
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        フリマアプリです
+      .content__btn
+        %a.abtn{href: "#"}
+          = image_tag asset_path()
+        %a.gbtn{href: "#"}
+          = image_tag asset_path()
+    .picture
+  %section.topintroduction
+    %h2.subtitle
+      FURIMAが選ばれる３つの理由
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number
+            1
+          = image_tag asset_path()
+        %h3.list__text
+          %span
+            3分
+          ですぐに出品
+        %p.list__description
+          スマホで入力するだけで簡単に出品できる！
+      %li.list
+        .list__pict
+          %span.number
+            2
+          = image_tag asset_path()
+        %h3.list__text
+          %span
+            シンプル
+          で使いやすい
+        %p.list__description
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.list.list--last
+        .list__pict
+          %span.number
+            3
+          = image_tag asset_path()
+        %h3.list__text
+          手数料
+          %span
+            業界最安
+        %p.list__description
+          最大3%でお得に出品&購入！
+  %section.topmiddledl
+    .topmiddledl__inner
+      %h2.subtitle
+        会員数日本一
+      %p.text
+        FURIMAはフリマアプリで最も人気。
+        %b
+          出品・購入回数も業界最多です！
+        ほしかったあの商品に出会えるかもしれません。
+      .btn
+        %a.abtn{href: "#"}
+          = image_tag asset_path()
+        %a.gbtn{href: "#"}
+          = image_tag asset_path()
+  %section.topkeyfeatures
+    %h2.head
+      FURIMAの特徴
+    .items
+      %section.item.__web-inspector-hide-shortcut__
+        %figure.item__tag
+          = image_tag asset_path()
+        %h3.item__subtitle
+          簡単に売り買いできる
+        %p.item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__tag
+          = image_tag asset_path()
+        %h3.item__subtitle
+          売上金は即日振込みに対応
+        %p.item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      %section.item
+        %figure.item__tag
+          = image_tag asset_path()
+        %h3.item__subtitle
+          様々な支払いに対応
+        %p.item__detail
+          お支払いはクレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  %section.pickupcontainer
+    %h2.head
+      ピックアップカテゴリー
+    .productbox
+      .producthead
+        %a{href: "#"}
+          %h3.title
+            新規投稿商品
+      .productlists
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                テスト
+              .details
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      1
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                ee
+              .details
+                %ul
+                  %li
+                    1000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product3
+              .details
+                %ul
+                  %li
+                    30000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product2
+              .details
+                %ul
+                  %li
+                    20000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product1
+              .details
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      1
+                %p
+                  (税込)
+  %section.pickupcontainer
+    %h2.head
+      ピックアップブランド
+    .productbox
+      .producthead
+        %a{href: "#"}
+          %h3.title
+            アーカイバ
+      .productlists
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                テスト
+              .details
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      1
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                ee
+              .details
+                %ul
+                  %li
+                    1000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product3
+              .details
+                %ul
+                  %li
+                    30000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product2
+              .details
+                %ul
+                  %li
+                    20000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      0
+                %p
+                  (税込)
+        .productlist
+          %a{href: "#"}
+            %figure.productlist--img
+              = image_tag asset_path()
+            .productlist--body
+              %h3.name
+                product1
+              .details
+                %ul
+                  %li
+                    10000円
+                  %li
+                    %i.fa.fa-star.likeicon
+                      1
+                %p
+                  (税込)
+%aside.appbanner
