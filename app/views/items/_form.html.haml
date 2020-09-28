@@ -125,7 +125,10 @@
             = f.hidden_field :status, value: "1"
         .submit-button
           .actions
-            =f.submit "出品する",class:"btn--red"
+            - if @item.persisted?
+              = f.submit "更新する",class:"btn--red"
+            - else
+              = f.submit "出品する",class:"btn--red"
             - if @item.persisted?
               = link_to "商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: "btn--gray"
             =link_to "もどる", items_path, class:"btn--plane"
