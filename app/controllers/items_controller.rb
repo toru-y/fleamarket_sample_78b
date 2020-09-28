@@ -1,26 +1,68 @@
 class ItemsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, except: [:index, :new, :create]
+
   def index
   end
 
   def new
-    if user_signed_in?
-      @item = Item.new
-      @item.images.new
+    @item = Item.new
+    @item.images.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
     else
+      render :new
+    end 
+  end
+
+  def edit
+    unless current_user.id == @item.user_id
       redirect_to root_path
     end
   end
 
-  def create
-    @item = Item.new(set_item_params)
-    if @item.images.present?
-      @item.save
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
     end
+  end
+
+  def destroy
+    @item.destroy
     redirect_to root_path
   end
 
   private
-  def set_item_params
-    params.require(:item).permit(:name, :price, :description, :size, :category, :condition, :shipping_fee, :handling_time, :prefecture, :brand, images_attributes: [:image]).merge(user_id: current_user.id)
+  def item_params
+    params.require(:item).permit(
+      :name, 
+      :price, 
+      :description, 
+      :size_id, 
+      :category_id, 
+      :brand, 
+      :condition_id, 
+      :shipping_fee_id, 
+      :handling_time_id, 
+      :prefecture_id, 
+      :status, 
+      images_attributes: [:image, :_destroy, :id]
+    ).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
