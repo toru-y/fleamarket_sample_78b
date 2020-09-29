@@ -35,10 +35,8 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      binding.pry
       redirect_to root_path
     else
-      binding.pry
       render :edit
     end
   end
