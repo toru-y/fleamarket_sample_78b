@@ -11,5 +11,8 @@ FactoryBot.define do
     handling_time_id        {"1"}
     price                   {"300"}
     status                  {"1"}
+    trait :with_image do
+      image
+    end
   end
 end
