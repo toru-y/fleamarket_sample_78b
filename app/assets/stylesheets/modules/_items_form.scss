@@ -285,42 +285,62 @@
           }
           &__form {
             width: 65%;
+
             &__category {
+              margin-top:32px;
               &__name {
-                margin-top:30px;
                 .form--caution {
                   @include form-caution;
-                }
-                .form-any {
-                  display: inline-block;
-                  background-color:#ccc;
-                  color: white;
-                  font-size: 11px;
-                  margin-left:8px;
-                  padding:2px 4px;
-                  border-radius: 2px;
-                  vertical-align: top;
-                  font-weight: bold;
                 }
               }
               .select--wrap{
                 @include select-wrap;
-                margin-top: 16px;
-                &-cat1__default-category1{
-                  @include select-wrap-box;
-                }
-                &-cat2__default-category2{
+                &__default{
                   @include select-wrap-box;
                 }
                   .fa-angle-down {
-                  position: absolute;
-                  @include angle-down;
-                }
-                &-cat3__default-category3{
-                  @include select-wrap-box;
-                }
-              }
+                    position: absolute;
+                    @include angle-down;
+                }     
+              }        
             }
+
+            // &__category {
+            //   &__name {
+            //     margin-top:30px;
+            //     .form--caution {
+            //       @include form-caution;
+            //     }
+            //     .form-any {
+            //       display: inline-block;
+            //       background-color:#ccc;
+            //       color: white;
+            //       font-size: 11px;
+            //       margin-left:8px;
+            //       padding:2px 4px;
+            //       border-radius: 2px;
+            //       vertical-align: top;
+            //       font-weight: bold;
+            //     }
+            //   }
+            //   .select--wrap{
+            //     @include select-wrap;
+            //     margin-top: 16px;
+            //     &-cat1__default-category1{
+            //       @include select-wrap-box;
+            //     }
+            //     &-cat2__default-category2{
+            //       @include select-wrap-box;
+            //     }
+            //       .fa-angle-down {
+            //       position: absolute;
+            //       @include angle-down;
+            //     }
+            //     &-cat3__default-category3{
+            //       @include select-wrap-box;
+            //     }
+            //   }
+            // }
             &__brand {
               margin-top:40px;
 
