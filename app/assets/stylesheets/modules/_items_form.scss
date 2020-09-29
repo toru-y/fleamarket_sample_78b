@@ -1,0 +1,602 @@
+@import "mixin";
+
+.exhibit__page {
+  width: 100%;
+  background-color: #EEEEEE;
+  &__header {
+    height: 128px;
+    text-align: center;
+    .exhibit__logo__link {
+      display: block;
+      width: 13%;
+      margin: 0 auto;
+      padding-top: 32px;
+    }
+    .exhibit__logo__img{
+      height: 49px;
+      width: 185px;
+    }
+  }
+  &__main {
+    background-color: #EEEEEE;
+    width: 700px;
+    display: block;
+    margin: 0 auto;
+    &__contents {
+      background-color:white;
+      width: 100%;
+      margin: 0 auto;
+      
+      &__message {
+        font-size: 22px;
+        display: block;
+        padding: 32px 16px;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #EEEEEE;
+      }
+      .form-content {
+        border-top: 1px solid #EEEEEE;
+        .img-form {
+          padding:40px;
+          border-bottom: 1px solid #EEEEEE;          
+          // 画像アップロードエリア
+          #image-box {
+             #image-visible {
+                width: 620px;
+                height: 150px;
+                display: flex;
+                overflow: hidden;
+                
+              #previews {
+                height: 100%;
+                display: flex;
+          
+                .single-box {
+                  height: 100%;
+                  width: calc(620px/5);
+                  margin-right: 1px;
+          
+                  .preview__image {
+                    width: 100%;
+                    height: 100px;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                  }
+          
+                  .__edit-box {
+                    width: 100%;
+                    height: 50px;
+                    background-color: #EEEEEE;
+                    border-top: 1px solid #ccc;
+          
+                    .js-edit, .js-remove {
+                      width: 100%;
+                      height: calc(50px/2);
+                      text-align: center;
+                      line-height: 25px;
+                      font-size: 14px;
+                      border-top: 1px solid #ccc;
+                      cursor: pointer
+                    }
+          
+                  }
+                }
+              }
+          
+              #input-area {
+          
+                height: calc(100% - 2px);
+                border: 1px dashed lightgray;
+                background: #f5f5f5;
+                width: 100%;
+                cursor: pointer;
+                &:hover {
+                  border: 1px dashed #1e90ff;
+                }
+          
+                .__cover {
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+          
+                  .__camera-icon{
+                    position: absolute;
+                    width: 24px;
+                    height: 24px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateY(-50%) translateX(-50%);
+                    -webkit-transform: translateY(-50%) translateX(-50%);
+                  }
+                }
+              }
+            }
+            #input-hidden {
+              display: none;
+              width: 0;
+              height: 0;
+            }
+          }
+          .img__upload__text {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            color:#333;
+            .form--caution {
+              @include form-caution;
+              line-height: 1.4em;
+            }
+          }
+          .img__upload__comment {
+            font-size: 12px;
+            margin:8px 0 0;
+          }
+          .dropbox {
+            margin-top: 16px;
+            &__img {
+              cursor: pointer;
+              display: flex;
+              text-align: center;
+              border: 1px dashed lightgray;
+              min-width: 115px;
+              height: 160px;
+              background: #f5f5f5;
+              margin-top: 5px;
+
+              & .__desc {
+                margin: auto;
+                & img {
+                  width: 24px;
+                  margin-bottom: 8px;
+                }
+                & p {
+                  font-size: 12px;
+                }
+              }
+              input[type="file"] {
+                display: none;
+              }
+            }
+          }
+          .preview {
+            margin: 0 2px 10px 2px;
+            width: 120px;
+            height: auto;
+            padding: 1rem 0 0;
+            box-sizing: border-box;
+            display: inline-block;
+            border: 1px solid lightgray;
+            background: #f5f5f5;
+            &__img {
+              width: 100%;
+              height: 78px;
+              img {
+                width: 100%;
+                max-height: 70px;
+                object-fit: cover;
+                border-top: rgb(160, 160, 160) solid 1px;
+                border-bottom: rgb(160, 160, 160) solid 1px;
+              }
+            }
+            &__delete {
+              display: flex;
+              justify-content: space-around;
+              padding-bottom: 5px;
+              &--button {
+                cursor: pointer;
+                text-align: center;
+                width: 45%;
+                line-height: 32px;
+                height: 30px;
+                margin-bottom: 1px;
+                background-color: #0099e8;
+                border-radius: 5px;
+                &:hover {
+                  opacity: 0.6;
+                }
+                p {
+                  display: inline-block;
+                  color: #fff;
+                  &:hover {
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+        // 商品名
+        .sell--content {
+          height: 100%;
+          padding:40px;
+          border-bottom: 1px solid #EEEEEE;
+
+          & label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            color:#333;
+            & span {
+              line-height: 1.4em;
+            }
+          }
+          &__name {
+            &__name {
+              font-size:14px;
+              color:#333;
+              .form--caution {
+                @include form-caution;
+              }
+            }
+            .item-name__text__field {
+              width: 586px;
+              margin-top: 16px;
+              height:50px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              padding:0 16px;
+            }
+          }
+          &__description {
+            margin-top:40px;
+            &__description {
+              font-size:14px;
+              color:#333;
+              .form--caution {
+                @include form-caution;
+              }
+            }
+            .sell--content__text__area {
+              margin-top: 16px;
+              width: 586px;
+              height:150px;
+              border: 1px solid #ccc;
+              resize: none;
+              white-space: pre-wrap;
+              padding: 13px 16px;
+              border-radius: 4px;
+              resize: vertical;
+
+            }
+          }
+        }
+        // 商品詳細
+        .item-details {
+          height: 100%;
+          padding:40px;
+          border-bottom: 1px solid #EEEEEE;
+
+          & label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            color:#333;
+            & span {
+              line-height: 1.4em;
+            }
+          }
+
+          &__name {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 24px;
+          }
+          &__form {
+            width: 65%;
+
+            &__category {
+              margin-top:32px;
+              &__name {
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }     
+              }        
+            }
+            &__brand {
+              margin-top:40px;
+
+              &__name {
+                .form--caution {
+                  display: inline-block;
+                  background-color: #aaa;
+                  color: white;
+                  font-size: 11px;
+                  margin-left:8px;
+                  padding:2px 4px;
+                  border-radius: 2px;
+                  vertical-align: top;
+                  font-weight: bold;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                  width: 586px !important;
+                }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }     
+              }        
+            }
+            &__size {
+              margin-top:32px;
+              &__name {
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }     
+              }        
+            }
+            &__status {
+              margin-top:40px;
+              &__name {
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }
+              }
+            }
+          }
+        }
+        // 配送について
+        .delivery-form {
+          height: 350px;
+          padding:40px;
+          border-bottom: 1px solid #EEEEEE;
+
+          & label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            color:#333;
+            
+            & span {
+              line-height: 1.4em;
+            }
+          }
+
+          &__about__delivery {
+            font-size: 14px;
+            color: #888;
+            & a {
+              color: rgb(0, 149, 238);
+            }
+          } 
+          &__box {
+            float: right;
+            width: 65%;
+            &__top {
+              margin-top: 32px;
+              .delivery-form__box__top__name {
+                
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                }
+                .fa-angle-down {
+                  position: absolute;
+                  @include angle-down;
+                }
+              }
+            }
+            &__middle {
+              margin-top: 32px;
+              .delivery-form__box__top__name {
+                margin-top: 40px;
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }
+              }
+            }
+            &__bottom {
+              margin-top: 32px;
+              .delivery-form__box__top__name {
+                margin-top: 40px;
+                .form--caution {
+                  @include form-caution;
+                }
+              }
+              .select--wrap{
+                @include select-wrap;
+                &__default{
+                  @include select-wrap-box;
+                  }
+                  .fa-angle-down {
+                    position: absolute;
+                    @include angle-down;
+                }
+              }
+            }
+          }
+        }
+        // 販売価格
+        .item-price {
+          height: 100px; 
+          padding:40px;
+          border-bottom: 1px solid #EEEEEE;
+          & a {
+            color: rgb(0, 149, 238);
+          }
+          & label {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            color:#333;
+            & span {
+              line-height: 1.4em;
+            }
+          }
+
+          &__form__name {
+            font-size:14px;
+            color:#888;
+            display:inline;
+          }
+          &__form {
+            float:right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+
+            &__left {
+              width:50%;
+              padding: 30px 0;
+              .form--caution {
+                @include form-caution;
+                
+              }
+            }
+            .input--price {
+              &__default{
+                border:1px solid #ccc;
+                height:50px;
+                border-radius: 5px; 
+                text-align: right;
+                height: 46px;
+                width: 251px;
+                padding: 0 16px;
+              }
+            }
+          }
+        }
+        .submit-button {
+          width:88%;
+          padding:40px;
+          & .actions {
+            margin-bottom: 32px;
+          }
+          &__text {
+            font-size: 12px;
+            color: rgb(51, 51, 51);
+          }
+          .btn--red {
+            margin: 24px auto 0px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 360px;
+            padding: 0 24px 0;
+            line-height: 48px;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          .btn--gray {
+            display: block;
+            line-height: 48px;
+            font-size: 14px;
+            width: 310px;
+            padding: 0 24px 0;
+            text-align: center;
+            text-decoration: none;
+            margin: 24px auto 0px;
+            color: white;
+            background-color:#AAAAAA;
+            font-weight: 600;
+            border-radius: 4px;
+          }
+
+          .btn--plane {
+            display: block;
+            line-height: 48px;
+            font-size: 14px;
+            width: 310px;
+            padding: 0 24px 0;
+            text-align: center;
+            text-decoration: none;
+            margin: 24px auto 0px;
+            // color: black;
+            // background-color:#AAAAAA;
+            font-weight: 600;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+.exhibit-page__footer {
+  width: 100%;
+  background-color: #EEEEEE;
+  &__content {
+    width: 30%;
+    margin:0 auto; 
+    padding: 40px 0px;
+    &__main {
+      .exhibit-page__footer__lists {
+        font-size:12px;
+        .exhibit-page__footer__list {
+          display:inline-block;
+          text-align: center;
+          width: 32%;
+          color:black;
+        }
+      }
+    }
+    .exhibit-page__footer__link {
+      display:block;
+      padding-top:30px;
+      height:90px;
+      width:90px;
+      margin:0 auto;
+    }
+    .exhibit-page__footer__copyright {
+      font-size: 12px;
+      text-align: center;
+      color:black;
+    }
+  }
+}
+
+
