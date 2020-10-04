@@ -2,6 +2,7 @@
 .header {
   display: flex;
   justify-content: center;
+  background-color: #fff;
   .header--inner {
     max-width: 1000px;
     width: 100%;
@@ -41,6 +42,33 @@
         }
       }
     }
+
+$fontColor:#333333;
+$hoverColor:#ff9933;
+
+@mixin subcatStyle () {
+  position: absolute;
+  left: 220px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  background-color: #fff;
+}
+@mixin itemStyle () {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #f8f8f8;
+  width: 220px;
+}
+@mixin btnStyle () {
+  display: block;
+  line-height: 35px;
+  width: 220px;
+  color: $fontColor;
+  text-decoration: none;
+}
+
     .nav {
       max-width: 1000px;
       width: 100%;
@@ -50,18 +78,493 @@
       font-size: small;
       .nav--left {
         display: flex;
-        .nav__category {
+        position: relative;
+        .nav__category {  /*カテゴリーボタン*/
           margin-right: 50px;
+          height: 25px;
+          background-color: #fff;
+          #category__btn {
+            display: block;
+            list-style: none;
+            text-decoration: none;
+            color: $fontColor;
+            line-height: 20px;
+            &:hover {
+              color: $hoverColor;
+            }
+          }
+          .category__items {
+            position: absolute;
+            top: 25px;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            .category__item {
+              @include itemStyle();
+              a {
+                @include btnStyle();
+                &:hover {
+                  color: $hoverColor;
+                }
+              }
+              .subcat__ladies {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                  .tops--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .tops--detailed.display--none {
+                    display: none;
+                  }
+                  .jackets--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .jackets--detailed.display--none {
+                    display: none;
+                  }
+                  .pants--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .pants--detailed.display--none {
+                    display: none;
+                  }
+                  .skirts--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .skirts--detailed.display--none {
+                    display: none;
+                  }
+                  .one-piece--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .one-piece--detailed.display--none {
+                    display: none;
+                  }
+                  .shoes--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .shoes--detailed.display--none {
+                    display: none;
+                  }
+                  .wear--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .wear--detailed.display--none {
+                    display: none;
+                  }
+                  .legs--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .legs--detailed.display--none {
+                    display: none;
+                  }
+                  .caps--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .caps--detailed.display--none {
+                    display: none;
+                  }
+                  .bags--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .bags--detailed.display--none {
+                    display: none;
+                  }
+                  .accessories--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .accessories--detailed.display--none {
+                    display: none;
+                  }
+                  .hair--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .hair--detailed.display--none {
+                    display: none;
+                  }
+                  .articles--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .articles--detailed.display--none {
+                    display: none;
+                  }
+                  .watches--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .watches--detailed.display--none {
+                    display: none;
+                  }
+                  .wigs--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .wigs--detailed.display--none {
+                    display: none;
+                  }
+                  .swimsuit--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .swimsuit--detailed.display--none {
+                    display: none;
+                  }
+                  .suit--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .suit--detailed.display--none {
+                    display: none;
+                  }
+                  .maternity--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .maternity--detailed.display--none {
+                    display: none;
+                  }
+                  .others--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .others--detailed.display--none {
+                    display: none;
+                  }
+                }
+              }
+              .subcat__ladies.display--none {
+                display: none;
+              }
+              .subcat__men {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                  .tops__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .tops__men--detailed.display--none {
+                    display: none;
+                  }
+                  .jackets__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .jackets__men--detailed.display--none {
+                    display: none;
+                  }
+                  .pants__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .pants__men--detailed.display--none {
+                    display: none;
+                  }
+                  .shoes__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .shoes__men--detailed.display--none {
+                    display: none;
+                  }
+                  .bags__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .bags__men--detailed.display--none {
+                    display: none;
+                  }
+                  .suits__men--detailed {
+                    @include subcatStyle();
+                    .detail__item {
+                      @include itemStyle();
+                    }
+                  }
+                  .suits__men--detailed.display--none {
+                    display: none;
+                  }
+                }
+              }
+              .subcat__men.display--none {
+                display: none;
+              }
+              .subcat__kids {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }  
+              .subcat__kids.display--none {
+                display: none;
+              }
+              .subcat__interior {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__interior.display--none {
+                display: none;
+              }
+              .subcat__books {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__books.display--none {
+                display: none;
+              }
+              .subcat__hobbies {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__hobbies.display--none {
+                display: none;
+              }
+              .subcat__beauty {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__beauty.display--none {
+                display: none;
+              }
+              .subcat__electric {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__electric.display--none {
+                display: none;
+              }
+              .subcat__sports {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__sports.display--none {
+                display: none;
+              }
+              .subcat__items--handmade {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__items--handmade.display--none {
+                display: none;
+              }
+              .subcat__tickets {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__tickets.display--none {
+                display: none;
+              }
+              .subcat__cars {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__cars.display--none {
+                display: none;
+              }
+              .subcat__others {
+                @include subcatStyle();
+                .subcat__item {
+                  @include itemStyle();
+                  a {
+                    @include btnStyle();
+                    &:hover {
+                      color: $hoverColor;
+                    }
+                  }
+                }
+              }
+              .subcat__others.display--none {
+                display: none;
+              }
+            }
+          }
+          .category__items.display--none {
+            display: none;
+          }
         }
         .nav__brand{
+          #brand__btn {
+            list-style: none;
+            text-decoration: none;
+            color: #333333;
+            line-height: 20px;
+            &:hover {
+              color: #ff9933;
+            } 
+          }
         }
-      }
+      }   
       .nav--right {
         display: flex;
         .login__form {
+          #login__btn {
+            text-decoration: none;
+            color: #333333;
+            &:hover {
+              color: #ff9933;
+            }
+          }
         }
         .login__form--new {
           margin-left: 20px;
+          #new__btn {
+            text-decoration: none;
+            color: #333333;
+            &:hover {
+            color: #ff9933;
+            }
+          }
         }
       }
     }
