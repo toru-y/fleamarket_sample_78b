@@ -288,21 +288,23 @@
 
             &__category {
               margin-top:32px;
+              display: block;
               &__name {
                 .form--caution {
                   @include form-caution;
                 }
               }
-              .select--wrap{
+              .select--wrap__category{
+                display: block;
                 @include select-wrap;
-                &__default{
+                .select--wrap__category__name {
                   @include select-wrap-box;
                 }
                   .fa-angle-down {
                     position: absolute;
                     @include angle-down;
-                }     
-              }        
+                }
+              }
             }
             &__brand {
               margin-top:40px;
