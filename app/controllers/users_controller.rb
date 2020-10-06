@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def update
   end
 
+  def mypage
+  end
+  
   private
   def set_user_params
     @user = User.find(params[:id])
