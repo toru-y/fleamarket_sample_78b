@@ -7,5 +7,9 @@ Rails.application.routes.draw do
     member do
       get 'mypage'
     end
+
+    collection do
+      resources :credit_cards, only:[:new, :show, :create, :destroy]
+    end
   end
 end

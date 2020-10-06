@@ -1,0 +1,15 @@
+=render "items/header"
+%main.mypage-contents.clearfix
+  = render "users/mypage_side"
+  .main-content
+    .card-infomation
+      %h2
+        登録カード情報
+      .card-number
+        = "**** **** **** " + @card_info.last4
+      .card-exp
+        = @card_info.exp_month.to_s + "/" + @card_info.exp_year.to_s.slice(2,3)
+    .card-del
+      = link_to "/cards/#{@card_info.id}", method: :delete, class: "card-form" do
+        %button{type: "submit", value: "削除", class: 'card-submit'}
+=render "items/footer"
