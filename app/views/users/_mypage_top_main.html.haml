@@ -1,0 +1,102 @@
+.main-content
+  %section.user
+    .user-link
+      %figure
+        .user-link__iconn
+          = image_tag "material/icon/user_avetar.png", class:"user-link__icon"
+      %h2.user-link__name
+        = @user.nickname
+      .user-link__number
+        評価  0  出品数  0
+  %section.notification-todo
+    %ul.tabs
+      %li.active
+        お知らせ
+      %li
+        やることリスト
+    .tab-content-notification-todo
+      %ul.notification-item-list
+        %li.notification-item-link
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              《あなた限定》ファミリーマート・ローソンのお買い物をおトクに♪ 100ポイント還元クーポン配信中！
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span 1 時間前
+          %i.icon-arrow-right
+        %li.notification-item-link            
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              《総額1億ポイントが当たる》今日の申込み完了まで抽選対象！
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span
+                1 日前
+          %i.icon-arrow-right
+        %li.notification-item-link
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              《もうすぐ終了》今なら出品祭で最大3万円分ポイント当たる！
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span
+                3 日前
+          %i.icon-arrow-right
+        %li.notification-item-link
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              ＼あと5日／はじめてのメルペイスマート払いで実質最大¥2,000引き！まずはエントリー
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span 5 日前
+          %i.icon-arrow-right
+        %li.notification-item-link
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              明日、P500還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span 8 日前
+          %i.icon-arrow-right
+        %li.mypage-go-list
+          =link_to "#", class: "go" do
+            一覧を見る
+      %ul.notification-item-list.hide
+        %li.notification-item-link
+          .notification-item-link__logo
+            = image_tag "material/logo/logo.png"
+          .notification-item-link__body
+            .notification-item-link__body--text
+              メールアドレスを確認してください。
+            %time
+              = icon("far", "clock", class: "icon-time")
+              %span 1 時間前
+  %section.transaction-hisory
+    %h2.header
+      購入した商品
+    %ul.transaction-tabs
+      %li.active
+        取引中
+      %li
+        過去の取引
+    .tab-content-transaction
+      %ul.tab-content-transaction__now
+        %li.tab-content-transaction__notfound
+          = image_tag "material/logo/logo.png"
+          %p
+            取引中の商品がありません
+      %ul.tab-content-transaction__old.hide
+        %li.tab-content-transaction__notfound
+          = image_tag "material/logo/logo.png"
+          %p
+            過去に取引した商品がありません
