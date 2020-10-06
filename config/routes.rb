@@ -2,5 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, except: :show
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :users, only: [:show, :update] do
+    member do
+      get 'mypage'
+    end
+  end
 end
