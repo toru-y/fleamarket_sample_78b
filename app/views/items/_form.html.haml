@@ -52,13 +52,19 @@
             =f.text_area :description, class:"sell--content__text__area", placeholder: '商品の説明（必須 1,000文字以内）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10; 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe
         .item-details
           %p.item-details__name 商品の詳細
-          -# .item-details__form
+          .item-details__form
           .item-details__form__category
             %label.item-details__form__category__name
               カテゴリー
               %span.form--caution 必須
-              .select--wrap
-                = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+              .select--wrap__category
+                -# = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+                - if controller.action_name == 'new'
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {id: 'parent_category', class:"select--wrap__category__name"}
+                - else
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.root_id}, {id: 'parent_category', class:"select--wrap__category__name"}
+                  = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {selected: @item.category.parent_id}, {id: 'children_wrapper', class:"select--wrap__category__name"}
+                  = f.collection_select :category_id, @item.category.siblings, :id, :name, {selected: Category.where(params[:child_id])}, {id: 'grandchildren_wrapper', class:"select--wrap__category__name"}
                 %i.fas.fa-angle-down
             .item-details__form__brand
               %h3.item-details__form__brand__name
