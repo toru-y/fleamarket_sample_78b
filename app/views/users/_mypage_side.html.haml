@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav-list
       %li
-        =link_to mypage_user_path(current_user.id), class: "mypage-nav-list-item" do
+        =link_to mypage_users_path, class: "mypage-nav-list-item" do
           マイページ
           = icon("fas", "angle-right", class: "icon-arrow-right")
       %li
@@ -70,9 +70,17 @@
           発送元・お届け先住所変更
           = icon("fas", "angle-right", class: "icon-arrow-right")
       %li
-        =link_to "#", class: "mypage-nav-list-setting-item" do
-          支払い方法
-          = icon("fas", "angle-right", class: "icon-arrow-right")
+        -# = link_to "#", method: "get", class: "mypage-nav-list-setting-item" do
+        -#   カードの登録・編集
+        -#   = icon("fas", "angle-right", class: "icon-arrow-right")
+        - if @user.credit_card.present?
+          = link_to credit_card_path(@user.credit_card.id), method: "get", class: "mypage-nav-list-setting-item" do
+            カードの編集
+            = icon("fas", "angle-right", class: "icon-arrow-right")
+        - else
+          = link_to new_credit_card_path, method: "get", class: "mypage-nav-list-setting-item" do
+            カードの登録
+            = icon("fas", "angle-right", class: "icon-arrow-right")
       %li
         =link_to "#", class: "mypage-nav-list-setting-item" do
           メール/パスワード
