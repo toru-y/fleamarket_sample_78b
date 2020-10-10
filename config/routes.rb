@@ -10,14 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show, :update] do
-    member do
-      get 'mypage'
-    end
-
+  resources :users, only: [] do
     collection do
+      get 'mypage'
+      get 'identification'
       resources :credit_cards, only:[:new, :show, :create, :destroy]
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
