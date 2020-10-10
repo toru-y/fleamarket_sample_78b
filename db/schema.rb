@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_045520) do
+ActiveRecord::Schema.define(version: 2020_10_02_024331) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2020_09_07_045520) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,14 +64,16 @@ ActiveRecord::Schema.define(version: 2020_09_07_045520) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.integer "size", null: false
-    t.integer "category", null: false
-    t.integer "condition", null: false
-    t.integer "shipping_fee", null: false
-    t.integer "handling_time", null: false
-    t.integer "prefecture", null: false
+    t.integer "size_id", null: false
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "handling_time_id", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "status", default: true, null: false
+    t.string "brand"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 

@@ -1,0 +1,154 @@
+.exhibit__page
+  = render 'new_header'
+  .exhibit__page__main
+    .exhibit__page__main__contents
+      = form_for @item, html:{class:"form-content"} do |f|
+        %h3.exhibit__page__main__contents__message
+          商品の情報を入力
+        .img-form
+          %label.img__upload__text
+            出品画像
+            %span.form--caution 
+              必須
+          %p.img__upload__comment
+            最大5枚までアップロードできます
+          #image-box
+            #image-visible
+              #previews
+                - if @item.persisted? 
+                  - @item.images.each_with_index do |image, i|
+                    .single-box
+                      = image_tag image.image.url, data: { index: i }, width: "100", height: '100', class: "preview__image"
+                      .__edit-box{"data-index": i}
+                        .js-edit
+                          編集
+                        .js-remove
+                          削除
+              %label#input-area
+                .__cover
+                  = image_tag "material/icon/icon_camera-bk.png", class: "__camera-icon"
+            #input-hidden
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index":"#{image.index}"}
+                  = image.file_field :image, class: 'js-file'
+                - if @item.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index":"#{@item.images.count}"}
+                  = file_field_tag :image, {name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'}
+        .sell--content
+          .sell--content__name
+            %label.sell--content__name__name
+              商品名
+              %span.form--caution 
+                必須
+            %div
+              = f.text_field :name, class:"item-name__text__field", placeholder: "商品名（必須 40文字まで)"
+          .sell--content__description
+            %label.sell--content__description__description
+              商品の説明
+              %span.form--caution 
+                必須
+            =f.text_area :description, class:"sell--content__text__area", placeholder: '商品の説明（必須 1,000文字以内）&#13;&#10;（色、素材、重さ、定価、注意点など）&#13;&#10;&#13;&#10; 例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'.html_safe
+        .item-details
+          %p.item-details__name 商品の詳細
+          .item-details__form
+          .item-details__form__category
+            %label.item-details__form__category__name
+              カテゴリー
+              %span.form--caution 必須
+              .select--wrap__category
+                -# = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+                - if controller.action_name == 'new'
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {id: 'parent_category', class:"select--wrap__category__name"}
+                - else
+                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.root_id}, {id: 'parent_category', class:"select--wrap__category__name"}
+                  = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {selected: @item.category.parent_id}, {id: 'children_wrapper', class:"select--wrap__category__name"}
+                  = f.collection_select :category_id, @item.category.siblings, :id, :name, {selected: Category.where(params[:child_id])}, {id: 'grandchildren_wrapper', class:"select--wrap__category__name"}
+                %i.fas.fa-angle-down
+            .item-details__form__brand
+              %h3.item-details__form__brand__name
+                ブランド
+                %span.form--caution 任意
+                .select--wrap
+                  = f.text_field :brand, class:"select--wrap__default", placeholder: "例）シャネル"
+            .item-details__form__size
+              %label.item-details__form__size__name
+                サイズ
+                %span.form--caution 必須
+                .select--wrap
+                  = f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+                        
+            .item-details__form__status
+              %label.item-details__form__status__name
+                商品の状態
+                %span.form--caution 必須
+                .select--wrap
+                  = f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+        .delivery-form
+          %p.delivery-form__about__delivery
+            配送について
+            =link_to "?", "#", class: 'form--question'
+          -# .delivery-form__box
+          .delivery-form__box__top
+            %label.delivery-form__box__top__name
+              配送料の負担
+              %span.form--caution 必須
+            .select--wrap
+              = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+              %i.fas.fa-angle-down
+          .delivery-form__box__middle
+            %label.delivery-form__box__top__name
+              発送元の地域
+              %span.form--caution 必須
+            .select--wrap
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"},{class:"select--wrap__default "}
+              %i.fas.fa-angle-down
+          .delivery-form__box__bottom
+            %label.delivery-form__box__top__name
+              発送までの日数
+              %span.form--caution 必須
+            .select--wrap
+              = f.collection_select :handling_time_id, HandlingTime.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
+              %i.fas.fa-angle-down
+        .item-price
+          %p.item-price__name 
+            価格(300〜9,999,999)
+            =link_to "?", "#", class: 'form--question'
+          .item-price__form
+            .item-price__form__left
+              %label.item-price__form__name
+                販売価格
+                %span.form--caution 必須
+            %span.item-price__form__right
+              ¥
+            .input--price 
+              =f.text_field :price, class:"input--price__default", placeholder: "0"
+        - unless @item.persisted?
+          .item-status
+            = f.hidden_field :status, value: "1"
+        .submit-button
+          .actions
+            - if @item.persisted?
+              = f.submit "更新する",class:"btn--red"
+            - else
+              = f.submit "出品する",class:"btn--red"
+            - if @item.persisted?
+              = link_to "商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: "btn--gray"
+            =link_to "もどる", items_path, class:"btn--plane"
+          .subimit-button__text
+            禁止されている出品、
+            =link_to "行為", "#", class: 'sell--content5__p__a'
+            および
+            =link_to "出品物", "#", class: 'sell--content5__p__a'
+            を必ずご確認ください。
+            =link_to "偽ブランド品", "#", class: 'sell--content5__p__a'
+            や
+            =link_to "盗品物", "#", class: 'sell--content5__p__a'
+            の販売は犯罪であり、法律により処罰される可能性があります。また出品をもちまして、
+            =link_to "加盟店規約", "#", class: 'sell--content5__p__a'
+            に同意したことになります。
+  = render "devise/registrations/user_footer"
+
