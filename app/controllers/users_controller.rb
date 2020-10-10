@@ -2,10 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user_params
   before_action :move_to_root
 
-  def show
-  end
-
-  def update
+  def identification
   end
 
   def mypage
@@ -13,7 +10,7 @@ class UsersController < ApplicationController
   
   private
   def set_user_params
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def move_to_root
