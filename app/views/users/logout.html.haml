@@ -1,0 +1,9 @@
+=render "items/header"
+%main.mypage-contents.clearfix
+  = render "mypage_side", locals: {user: @user}
+  .main-content
+    -# ------ここから
+    ここにログアウトページの記述を書いてください
+
+    -# ------ここまで
+=render "items/footer"
