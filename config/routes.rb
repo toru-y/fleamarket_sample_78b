@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     collection do
       get 'mypage'
       get 'identification'
+      get 'logout'
       resources :credit_cards, only:[:new, :show, :create, :destroy]
     end
   end
