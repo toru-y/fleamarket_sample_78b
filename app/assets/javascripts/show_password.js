@@ -1,5 +1,5 @@
 $(function() {
-    const password  = '#password';
+    const password = '.form-group__input.password'
     const passcheck = '#reveal_password';
     
     $(passcheck).change(function() {
