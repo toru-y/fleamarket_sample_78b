@@ -4,7 +4,7 @@
   .top{
     width: 100%;
     height: 560px;
-    // background-image: ;
+    background-image: url(material/pict/bg-mainVisual-pict_pc.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -52,6 +52,16 @@
       padding-bottom: 15px;
       position: relative;
     }
+    .title::after{
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3ccace;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .lists{
       text-align: center;
       display: flex;
@@ -68,12 +78,32 @@
         .list__pict{
           position: relative;
           margin-bottom: 20px;
+          .number{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3ccace;
+            color: #fff;
+          }
+          img{
+            width: 100%;
+            vertical-align: bottom;
+          }
         }
         .list__text{
           font-weight: bold;
           font-size: 24px;
           line-height: 50px;
           margin: 0 0 0 2px;
+          span{
+            color: #3ccace;
+          }
         }
         .list__description{
           font-size: 18px;
@@ -92,7 +122,7 @@
     }
   }
   .middle{
-    // background-image: ;
+    background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
     background-position: bottom right;
     height: 400px;
     background-size: cover;
@@ -106,7 +136,7 @@
       width: 100%;
       margin: 0 auto;
       .subtitle{
-        font-size: 24px;
+        font-size: 27px;
         font-weight: bold;
         line-height: 1.4;
       }
@@ -119,11 +149,9 @@
         display: flex;
         a{
           margin-right: 10px;
-          .abtn{
+          img{
             width: 180px;
-          }
-          .gbtn{
-            width: 180px;
+            height: auto;
           }
         }
       }
@@ -140,16 +168,17 @@
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-      .head::after{
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3ccace;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      
+    }
+    .head::after{
+      content: "";
+      width: 70px;
+      height: 4px;
+      background-color: #3ccace;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .items{
       max-width: calc(1040px + 20px);

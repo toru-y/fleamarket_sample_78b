@@ -5,7 +5,8 @@
         人生を変えるフリマアプリ
       %p.content__text
         FURIMAはだれでもかんたんに出品・購入できる
-        フリマアプリです
+        %br
+          フリマアプリです
       .content__btn
         %a.abtn{href: "#"}
           -# = image_tag asset_path()
@@ -52,7 +53,7 @@
   %section.middle
     .middle__inner
       %h2.subtitle
-        会員数日本一
+        会員数日本一位
       %p.text
         FURIMAはフリマアプリで最も人気。
         %br
@@ -61,9 +62,9 @@
             ほしかったあの商品に出会えるかもしれません。
       .btn
         %a.abtn{href: "#"}
-          -# = image_tag asset_path()
+          = image_tag asset_path("material/icon/Download_on_the_App_Store_Badge_US-UK_blk_092917.png")
         %a.gbtn{href: "#"}
-          -# = image_tag asset_path()
+          = image_tag asset_path("material/icon/google-play-badge.png")
   %section.features
     %h2.head
       FURIMAの特徴
