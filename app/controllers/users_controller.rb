@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def mypage
   end
   
+  def logout
+  end
+  
   private
   def set_user_params
     @user = User.find(current_user.id)
