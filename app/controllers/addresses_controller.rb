@@ -7,17 +7,31 @@ class AddressesController < ApplicationController
   end
 
   def create
-
+    @address = Address.new(address_params)
+    if @address.save
+      redirect_to mypage_users_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-
+    if @address.update(address_params)
+      redirect_to mypage_users_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    if @address.destroy
+      redirect_to mypage_users_path
+    else
+      render :edit
+    end
   end
 
   private
