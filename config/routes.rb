@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'identification'
       get 'logout'
       resources :credit_cards, only:[:new, :show, :create, :destroy]
+      resources :addresses, only:[:new, :edit, :create, :update, :destroy]
     end
   end
 end
