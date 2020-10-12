@@ -49,4 +49,9 @@
             .__form
               = f.text_field :phone_number, type: 'text', class: 'text-field', placeholder: '例）09012345678'
           .__submit-btn
-            = f.submit '登録', class: 'address-submit-btn'
+            .action
+              = f.submit '登録', class: 'address-submit-btn'
+            .action
+              - if @address.persisted?
+                = link_to "商品を削除する", address_path(@address), method: :delete, class: "btn--gray"
+          
