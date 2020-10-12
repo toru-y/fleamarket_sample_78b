@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_user_params, only: [:new, :edit]
-  before_action :set_address_params, only: [:edit]
+  before_action :set_address_params, only: [:edit, :destroy]
 
   def new
     @address = Address.new
