@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     end
     
     member do
-      get 'purchase'
+      get 'confirm'
+    end
+
+    resources :credit_cards, only:[] do
+      post 'pay'
     end
   end
 
