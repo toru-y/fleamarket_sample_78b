@@ -69,6 +69,7 @@ class ItemsController < ApplicationController
   end
 
   def purchase
+    
     payjp_token = get_my_payjp_token
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -76,9 +77,11 @@ class ItemsController < ApplicationController
       customer: payjp_token.customer_id,
       currency: 'jpy',
     )
-    @item.update(status: 0)
-    redirect_to root_path
-  end
+    if @item.update_attribute(:status, 0)
+      redirect_to root_path
+    else
+      redirect_to confirm_item_path(@item.id)
+    end
 end
 
   private
