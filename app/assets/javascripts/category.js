@@ -9,11 +9,12 @@ $(document).on('turbolinks:load', function(){
     // 子カテゴリーの表示作成
     function appendChidrenBox(insertHTML){
       var childSelectHtml = '';
-      childSelectHtml = `<div class=“select--wrap__category__child” id = "children_wrapper">
+      childSelectHtml = `<div class="select--wrap__category__child" id = "children_wrapper">
                           <select id= child_category class="select--wrap__category__name" name=item[category_id]>
                             <option value="---" data-category="---">選択してください</option>
                             ${insertHTML}
                           </select>
+                          <i class="fas fa-angle-down"></i>
                         </div>`
       $('.select--wrap__category').append(childSelectHtml);
     }
@@ -22,11 +23,12 @@ $(document).on('turbolinks:load', function(){
     function appendGrandchidrenBox(insertHTML){
       var grandchildSelectHtml = '';
         // $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
-      grandchildSelectHtml = `<div class=“select--wrap__category__grandchild” id = "grandchildren_wrapper">
+      grandchildSelectHtml = `<div class="select--wrap__category__grandchild" id = "grandchildren_wrapper">
                                 <select id= grandchildren_category class="select--wrap__category__name" name=item[category_id]>
                                   <option value="---" data-category="---">選択してください</option>
                                   ${insertHTML}
                                 </select>
+                                <i class="fas fa-angle-down"></i>
                               </div>`
 $('.select--wrap__category').append(grandchildSelectHtml);
     }
