@@ -1,0 +1,36 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to root_path do
+        = image_tag asset_path("material/logo/logo.png")
+  .single-main
+    .l-single-container
+      %h2
+        購入内容の確認
+      .single-main__container__form__frame
+        .field.item-info
+          .__image
+            = image_tag @item.images[0].image.url
+          .__info
+            .__name
+              = @item.name
+            .__price
+              税込
+              = @item.shipping_fee.name
+              ¥
+              %span
+              = @item.price
+        .field.pay-amount
+          %label
+            支払い金額
+          .__amount
+            ¥
+            = @item.price
+        .field.credit-card
+          %h3
+            クレジットカード情報
+          = @item.user.credit_card.card_id
+        .field.address
+
+        .field.button
+  = render "devise/registrations/user_footer"
