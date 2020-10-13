@@ -1,8 +1,12 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :show, :get_category_children, :get_category_grandchildren]
 
   def index
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -27,7 +31,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -39,7 +42,6 @@ class ItemsController < ApplicationController
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
-    # binding.pry
   end
 
   def update

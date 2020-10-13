@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
-  resources :items, except: :show
+  resources :items
   resources :items do 
     #Ajaxで動くアクションのルートを作成
     collection do
