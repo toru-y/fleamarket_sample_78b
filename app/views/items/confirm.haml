@@ -53,7 +53,7 @@
             = link_to "配送先を登録してください", new_address_path
         .field.button
           - if @card.present? && current_user.address.present?
-            = link_to "購入する","#"
+            = link_to "購入する", purchase_item_path, method: :post, class: "buttun purchase"
           - else
             %span
               商品の購入には、クレジットカード、及び配送先の登録が必要です。
