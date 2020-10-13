@@ -45,14 +45,15 @@
             %h3
               配送先
             .__address
-              = suser.address.prefecture.name
-              = suser.address.city
-              = suser.address.building_name
+              = current_user.address.post_code
+              = current_user.address.prefecture.name
+              = current_user.address.city
+              = current_user.address.building_name
           - else
             = link_to "配送先を登録してください", new_address_path
         .field.button
           - if @card.present? && current_user.address.present?
-            = linkt_to "#","#"
+            = link_to "購入する","#"
           - else
             %span
               商品の購入には、クレジットカード、及び配送先の登録が必要です。
