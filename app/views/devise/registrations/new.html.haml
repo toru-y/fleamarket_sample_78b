@@ -27,7 +27,8 @@
               = f.label :パスワード
               %span.form-group__require
                 必須
-              = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
+              = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input password',id:"password"}
+              = f.password_field :password_confirmation,{autocomplete: "new-password",placeholder: "パスワード確認",class:'form-group__input password',id:"password"}
               %p.form-group__info
                 ※ 英字と数字の両方を含めて設定してください
               .form-password-revelation-toggle
