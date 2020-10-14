@@ -90,7 +90,7 @@
                 お気に入り 0
             %ul.optional
               %li.optionalBtn
-                %a{:href => "#"}
+                = link_to "#" do
                   = icon('fas', 'flag')
                   不適切な商品の通報
           .button
@@ -101,12 +101,10 @@
               = link_to "購入画面へ進む", "#", class: 'btn'
         .commentBox
           %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
-            -# %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            -# %input{:name => "authenticity_token", :type => "hidden"}/
             %textarea#comment_body{:name => "comment[body]", :required => "required"}
-            %p.noticeMsg
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br/
+            %h5.noticeMsg
+              .noticeMsg__top
+                相手のことを考え丁寧なコメントを心がけましょう。
               %br/
               不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br/
@@ -115,18 +113,18 @@
               コメントする
       %ul.links
         %li
-          %a{:href => "#"}
+          = link_to "#" do
             = icon('fas', 'angle-left')
             %span
             前の商品
         %li
-          %a{:href => "#"}
+          = link_to "#" do
             %span 後ろの商品
             = icon('fas', 'angle-right')
       .relatedItems
         = link_to "#{@item.category.root.name}をもっと見る", "#"
         .productLists
-          %a{:href => "#"}
+          = link_to "#" do
             %figure.productLists__img
               = image_tag "material/pict/a007.png"
             .productLists__body
