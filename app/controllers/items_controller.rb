@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     @item = Item.new
     @item.images.new
@@ -27,7 +30,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -39,7 +41,6 @@ class ItemsController < ApplicationController
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
-    # binding.pry
   end
 
   def update
