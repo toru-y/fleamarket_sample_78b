@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, except: [:index, :new, :create, :show, :get_category_children, :get_category_grandchildren]
+  before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new

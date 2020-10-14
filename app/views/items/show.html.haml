@@ -126,9 +126,9 @@
       .relatedItems
         = link_to "#{@item.category.root.name}をもっと見る", "#"
         .productLists
-          %a{:href => "/products/3"}
+          %a{:href => "#"}
             %figure.productLists__img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              = image_tag "material/pict/a007.png"
             .productLists__body
               %h3.productLists__body__name product3
               .productLists__body__details
