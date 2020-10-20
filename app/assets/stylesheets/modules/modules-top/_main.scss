@@ -8,13 +8,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
-    position: relative;
-    padding: 0 60px;
+    // position: relative;
+    // padding: 0 60px;
     display: flex;
     align-items: center;
     .content{
-      max-width: 1280px;
-      width: 100%;
+      // max-width: 1280px;
+      // width: 100%;
       margin: 0 auto;
       padding: 35px 0 0 0;
       .content__subtitle{
@@ -42,6 +42,7 @@
     }
   }
   .description{
+
     padding: 60px 20px;
     .title{
       text-align: center;
@@ -181,11 +182,12 @@
       transform: translateX(-50%);
     }
     .items{
-      max-width: calc(1040px + 20px);
+      // max-width: calc(1040px + 20px);
       width: 100%;
       margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
+      // flex-wrap: wrap;
       .item{
         display: flex;
         flex-direction: column;
@@ -193,9 +195,11 @@
         text-align: center;
         padding: 0 20px;
         .item__tag{
-          width: 70%;
-          margin: 0 auto;
-          line-height: 120px;
+          img {
+            width: 70%;
+            margin: 0 auto;
+            line-height: 120px;
+          }
         }
         .item__subtitle{
           margin: 38px 0 10px;
