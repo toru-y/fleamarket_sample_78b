@@ -60,12 +60,20 @@
               .select--wrap__category
                 -# = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
                 - if controller.action_name == 'new'
-                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {id: 'parent_category', class:"select--wrap__category__name"}
+                  .select--wrap__category__parent
+                    = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {id: 'parent_category', class:"select--wrap__category__name"}
+                    = icon('fas', 'angle-down')
                 - else
-                  = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.root_id}, {id: 'parent_category', class:"select--wrap__category__name"}
-                  = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {selected: @item.category.parent_id}, {id: 'children_wrapper', class:"select--wrap__category__name"}
-                  = f.collection_select :category_id, @item.category.siblings, :id, :name, {selected: Category.where(params[:child_id])}, {id: 'grandchildren_wrapper', class:"select--wrap__category__name"}
-                %i.fas.fa-angle-down
+                  .select--wrap__category__parent
+                    = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {selected: @item.category.root_id}, {id: 'parent_category', class:"select--wrap__category__name"}
+                    = icon('fas', 'angle-down')
+                  .select--wrap__category__child
+                    = f.collection_select :category_id, @item.category.parent.siblings, :id, :name, {selected: @item.category.parent_id}, {id: 'children_wrapper', class:"select--wrap__category__name"}
+                    = icon('fas', 'angle-down')
+                  .select--wrap__category__grandchild
+                    = f.collection_select :category_id, @item.category.siblings, :id, :name, {selected: Category.where(params[:child_id])}, {id: 'grandchildren_wrapper', class:"select--wrap__category__name"}
+                    = icon('fas', 'angle-down')
+                -# %i.fas.fa-angle-down
             .item-details__form__brand
               %h3.item-details__form__brand__name
                 ブランド

@@ -300,9 +300,20 @@
                 .select--wrap__category__name {
                   @include select-wrap-box;
                 }
+                .fa-angle-down {
+                  position: absolute;
+                  @include angle-down;
+                }
+
+                .select--wrap__category__parent, .select--wrap__category__child, .select--wrap__category__grandchild{
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  margin-bottom: 16px;
                   .fa-angle-down {
                     position: absolute;
                     @include angle-down;
+                  } 
                 }
               }
             }
