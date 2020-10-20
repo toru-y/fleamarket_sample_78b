@@ -27,7 +27,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -39,7 +38,6 @@ class ItemsController < ApplicationController
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
-    # binding.pry
   end
 
   def update
@@ -69,12 +67,11 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    
-    payjp_token = get_my_payjp_token
+    card = get_my_payjp_token
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
       amount: @item.price,
-      customer: payjp_token.customer_id,
+      customer: card.customer_id,
       currency: 'jpy',
     )
     if @item.update_attribute(:status, 0)
