@@ -1,0 +1,25 @@
+.content-wrapper {
+  .contents-title {}
+  .contents{
+    .user-datas{
+      width: 375px;
+      padding: 32px 64px;
+      .user-data{
+        label{
+          font-weight: 900; 
+        }
+        padding-bottom: 40px;
+        .user-link{
+          display: flex;
+          padding-top: 8px;
+          .user-link__last_name{
+            margin-right: 2px;
+          }
+          .user-link__last_name_kana{
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+  }
+}

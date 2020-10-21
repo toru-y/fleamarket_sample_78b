@@ -2,8 +2,10 @@
 %main.mypage-contents.clearfix
   = render "mypage_side", locals: {user: @user}
   .main-content
-    -# ------ここから
-    ここにログアウトページの記述を書いてください
-
-    -# ------ここまで
+    .content-wrapper
+      .contents-title
+        %h2 ログアウトページ
+      .contents
+        .logout-form
+          = link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'logout-btn'
 =render "items/footer"
