@@ -23,7 +23,7 @@
           %li.login__form
             = link_to "サインアウト", destroy_user_session_path, method: :delete
           %li.login__form--new
-            = link_to "マイページ", "#"
+            = link_to "マイページ", "/users/mypage"
         - else
           %li.login__form
             = link_to "ログイン", new_user_session_path
