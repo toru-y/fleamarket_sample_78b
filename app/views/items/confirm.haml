@@ -55,7 +55,7 @@
           - else
             = link_to "配送先を登録してください", new_address_path
         .field.button
-          - if @card.present? && current_user.address.present? & @item.status == 1
+          - if @card.present? && current_user.address.present? && @item.status
             = link_to "購入する", purchase_item_path, method: :post, class: "buttun purchase"
           - else
             - unless @item.status
@@ -64,5 +64,5 @@
             - unless @card.present? || current_user.address.present?
               %span
                 商品の購入には、クレジットカード、及び配送先の登録が必要です。
-            = link_to "購入する", "#", class: "buttun purchase disabled"
+              = link_to "購入する", "#", class: "buttun purchase disabled"
   = render "devise/registrations/user_footer"
