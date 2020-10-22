@@ -53,5 +53,5 @@
               = f.submit '登録', class: 'address-submit-btn'
             .action
               - if @address.persisted?
-                = link_to "商品を削除する", address_path(@address), method: :delete, class: "btn--gray"
+                = link_to "削除", address_path(@address), method: :delete, class: "btn--gray"
           
