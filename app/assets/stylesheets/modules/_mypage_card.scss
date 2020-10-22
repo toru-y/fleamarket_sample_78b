@@ -21,7 +21,7 @@
     max-width: 375px;
     margin: 0px auto;
     padding: 0px 16px;
-      .card-form {
+      .card-form, .address-form {
         padding: 32px 0 48px 0;
       .__input-field {
         margin-bottom: 28px;
@@ -95,7 +95,7 @@
       .__submit-btn {
         margin-top: 32px;
         width: 100%;
-        .card-registration.submit.btn {
+        .card-registration.submit.btn, .address-submit-btn{
           width: 100%;
           background-color: #ea352d;
           color: #fff;

@@ -66,13 +66,15 @@
           プロフィール
           = icon("fas", "angle-right", class: "icon-arrow-right")
       %li
-        =link_to "#", class: "mypage-nav-list-setting-item" do
-          発送元・お届け先住所変更
-          = icon("fas", "angle-right", class: "icon-arrow-right")
+        - if @user.address.present?
+          = link_to edit_address_path(@user.address.id), class: "mypage-nav-list-setting-item" do
+            発送元・お届け先住所変更
+            = icon("fas", "angle-right", class: "icon-arrow-right")
+        - else
+          =link_to new_address_path, class: "mypage-nav-list-setting-item" do
+            発送元・お届け先住所変更
+            = icon("fas", "angle-right", class: "icon-arrow-right")
       %li
-        -# = link_to "#", method: "get", class: "mypage-nav-list-setting-item" do
-        -#   カードの登録・編集
-        -#   = icon("fas", "angle-right", class: "icon-arrow-right")
         - if @user.credit_card.present?
           = link_to credit_card_path(@user.credit_card.id), method: "get", class: "mypage-nav-list-setting-item" do
             カードの編集

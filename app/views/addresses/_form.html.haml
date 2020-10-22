@@ -1,0 +1,57 @@
+.main-content
+  .content-wrapper
+    .contents-title
+      %h2
+        発送元・お届け先住所変更
+    .contents
+      .form-area
+        = form_with model: @address, method: :post, class: 'address-form', html: { name: "inputForm" } do |f|
+          .__input-field
+            .__label
+              = f.label :郵便番号, class: 'label'
+              %span
+                必須
+            .__form
+              = f.text_field :post_code, type: 'text', class: 'text-field', placeholder: '例）123-4567', maxlength: "8"
+          .__input-field
+            .__label
+              = f.label :都道府県, class: 'label'
+              %span
+                必須
+            .__form
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"},{class:"text-field"}
+          .__input-field
+            .__label
+              = f.label :市区町村, class: 'label'
+              %span
+                必須
+            .__form
+              = f.text_field :city, type: 'text', class: 'text-field', placeholder: '例）横浜市緑区'
+          .__input-field
+            .__label
+              = f.label :番地, class: 'label'
+              %span
+                必須
+            .__form
+              = f.text_field :house_number, type: 'text', class: 'text-field', placeholder: '例）青山1-1-1'
+          .__input-field
+            .__label
+              = f.label :建物名, class: 'label'
+              %span.any
+                任意
+            .__form
+              = f.text_field :building_number, type: 'text', class: 'text-field', placeholder: '例）柳ビル103'
+          .__input-field
+            .__label
+              = f.label :電話番号, class: 'label'
+              %span.any
+                任意
+            .__form
+              = f.text_field :phone_number, type: 'text', class: 'text-field', placeholder: '例）09012345678'
+          .__submit-btn
+            .action
+              = f.submit '登録', class: 'address-submit-btn'
+            .action
+              - if @address.persisted?
+                = link_to "商品を削除する", address_path(@address), method: :delete, class: "btn--gray"
+          
