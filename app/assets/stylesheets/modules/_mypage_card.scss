@@ -1,0 +1,168 @@
+.content-wrapper {
+  .contents-title {
+    border-bottom: 1px solid rgb(245, 245, 245);
+    margin: 0;
+    padding: 32px 16px;
+    background-color: white;
+    & h2 {
+      display: block;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 34px;
+    }
+  }
+
+  .contents {
+    background-color: white;
+    margin: 0px;
+    border: 0px;
+    .form-area {
+      max-width: 375px;
+      margin: 0px auto;
+      padding: 0px 16px;
+      .card-form, .address-form {
+      padding: 32px 0 48px 0;
+      
+        &__input-field {
+          margin-bottom: 28px;
+          width: 100%;
+          .label {
+            align-items: center;
+            margin-bottom: 16px;
+            display: flex;
+          
+            label {
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 1.4em;
+              display: inline-block;
+            }
+            span {
+              // margin: auto 0 auto 8px !important;
+              position: relative;
+              top: 0;
+              margin-left: 8px !important;
+              font-size: 12px;
+              padding: 0 4px;
+              background-color: #ff0211;
+              color: #fff;
+              border-radius: 2px;
+              display: inline-block;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.4em;
+              margin: 0;
+            }
+          }
+        .input-number.text-field {
+          height: 48px;
+          align-items: center;
+          display: inline-flex;
+          width: calc(100% - 34px);
+          margin-top: 16px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          margin: 0;
+          outline: none;
+          padding: 0 16px;
+        }
+        figure {
+          .card-logo {
+            max-height: 20px;
+            max-width: 44px;
+            margin: 5px;
+            vertical-align: middle;
+          }
+        }
+
+        .cards-expire {
+          margin-top: 16px;
+
+          .input-expire.select {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #222;
+            font-size: 16px;
+            height: 48px;
+            padding: 0 16px;
+            width: 100px;
+          }
+          span {
+            display: inline-block;
+            width: 46px;
+            text-align: center;
+          }
+
+        }
+      }
+      &__submit-btn {
+        margin-top: 32px;
+        width: 100%;
+        .card-registration.submit.btn, .address-submit-btn{
+          width: 100%;
+          background-color: #ea352d;
+          color: #fff;
+          font-size: 17px;
+          min-height: 48px;
+          padding: 0 24px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          text-align: center;
+        }
+      }
+    }
+   }
+
+    .card-info {
+    max-width: 375px;
+    margin: 0px auto;
+    padding: 32px 0 48px 0;
+    &__fields {
+      margin-bottom: 28px;
+      width: 100%;
+      
+      label {
+        display: block;
+        margin-bottom: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+      p.text {
+        font-size: 16px;
+        line-height: 28px;
+        span {
+          margin-right: 5px;
+          
+          &.frame {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+            height: 28px;
+            width: 50px;
+            line-height: 28px;
+            text-align: center;
+          }
+        }
+      }
+    }
+    &__btn {
+      margin-top: 32px;
+      width: 100%;
+      .del-btn {
+        display: inline-block;
+        width: 100%;
+        background-color: #ea352d;
+        color: #fff;
+        font-size: 17px;
+        min-height: 48px;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        text-align: center;
+        line-height: 48px;
+      }
+    }
+   }
+  }
+}

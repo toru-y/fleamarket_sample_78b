@@ -1,7 +1,13 @@
 @import "reset";
+@import "modules/color";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/index";
 @import "modules/devise";
 @import "modules/items_form";
+@import "modules/mypage_user";
+@import "modules/mypage_card";
+@import "modules/mypage_identification";
+@import "modules/mypage_logout";
+@import "modules/mypage_address";
 @import "modules/show";
