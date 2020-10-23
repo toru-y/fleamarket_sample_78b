@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_user_params, only: [:new, :edit]
-  before_action :set_address_params, only: [:edit, :destroy]
+  before_action :set_address, only: [:edit, :destroy]
 
   def new
     @address = Address.new
@@ -39,11 +38,7 @@ class AddressesController < ApplicationController
     params.require(:address).permit(:post_code, :prefecture_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id)
   end
 
-  def set_user_params
-    @user = User.find(current_user.id)
-  end
-
-  def set_address_params
+  def set_address
     @address = Address.find_by(user_id: current_user.id)
   end
 end

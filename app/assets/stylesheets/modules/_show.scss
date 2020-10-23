@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+nav {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.breadCrumbs {
+  width: 100%;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  padding: 0 60px;
+  background-color: #fff;
+  &  ul {
+    padding: 17px 0;
+    width: 100%;
+    max-width: 1040px;
+    font-size: 14px;
+    margin: 0 auto;
+    &  li {
+      padding-right: 10px;
+      float: left;
+      & a {
+        // text-decoration: none;
+        color: #333;
+      }
+      & a:hover {
+        color: #3CCACE;
+      }
+    }
+  }
+}
+
+.breadCrumbs ul:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.breadCrumbs ul li:last-child {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.Main {
+  background: #f8f8f8;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.showMain {
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.contentRight {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.itemBox {
+  background-color: #fff;
+  padding: 24px 40px 40px;
+  &__name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  &__body {
+    margin: 16px 0 0;
+
+    ul {
+      display: flex;
+      position: relative;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        width: 560px;
+        align-items: center;
+        margin: 0 auto;
+        
+        img {
+          object-fit: cover;
+          height: 346px;
+        }
+      }
+    }
+    &__images {
+      width: 100%;
+      display: flex;
+      float: left;
+      justify-content: center;
+      margin-top: 10px;
+
+       .image {
+        object-fit: cover;
+        height: 87px;
+        display: flex;
+        width: 25%;
+        margin: 0 10px 0 0;
+      }
+    }
+  }
+
+  &__price {
+    margin: 24px 0 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    & > span {
+      font-size: 46px;
+      font-weight: bold;
+      margin: 0 10px 0 0;
+      padding-bottom: 5px;
+      
+      &__price-detail {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.itemDetail {
+  line-height: 1.5;
+  font-size: 18px;
+  margin: 30px 0;
+}
+
+// 商品詳細テーブル
+.table {
+  margin-bottom: 20px;
+  
+  & table {
+    width: 100%;
+    height: 375px;
+    border-collapse: collapse;
+    border: 1px solid #f8f8f8;
+
+    & tbody {
+      display: table-row-group;
+      vertical-align: middle;
+      border-color: inherit;
+
+      & tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+        & th {
+          width: 20%;
+          background-color: #eee;
+          font-weight: 600;
+          padding: 8px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          text-align: center;
+          padding: 15px 15px;
+        }
+        & td {
+          width: 61%;
+          padding: 15px 15px;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          & a {
+            display: block;
+            text-decoration: none;
+            color: #3CCACE;
+          }
+        }
+      }
+    }
+  }
+}
+
+// お気に入りボタン
+.optionalArea {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  & ul {
+    margin: 10px 0 0;
+    display: flex;
+    
+    & li.likeBtn {
+      margin-right: auto;
+      padding: 8px 10px;
+      border-radius: 40px;
+      color: #3CCACE;
+      border: 1px solid #ffb340;
+      font-size: 16px;
+    }
+  }
+}
+
+// 不適切な商品
+.optionalBtn {
+  font-size: 14px;
+  a {
+    padding: 8px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #333;
+    border: 1px solid #333;
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .btn {
+    font-size: 18px;
+    line-height: 48px;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    width: 60%;
+    font-size: 18px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    & a {
+      color: #fff;
+    }
+  }
+}
+
+
+.commentBox {
+  padding: 24px;
+  background-color: #fff;
+  margin: 10px 0;
+  text-align: center;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.new_comment #comment_body {
+  width: 100%;
+  min-height: 104px;
+  padding: 10px;
+}
+
+// 相手のことを考え丁寧なコメントを心がけましょう。
+.noticeMsg {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  margin: 10px 0;
+  text-align: left;
+  font-size: 16px;
+  font: normal normal normal 13px/1 FontAwesome;
+}
+
+// コメントボタン
+.Btn {
+  font-size: 18px;
+  line-height: 48px;
+  background: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  width: 60%;
+  font-size: 18px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  & a {
+    color: #fff;
+  }
+}
+
+// 前後の商品
+.links li {
+  float: left;
+  a {
+    text-decoration: none;
+    color: #3CCACE;
+    font-size: 16px;
+  }  
+}
+
+// 後ろの商品
+.links li:last-child {
+  float: right;
+}
+
+// 改行
+.links:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+// 〜をもっと見る
+.relatedItems a {
+  display: block;
+  margin: 24px 0 8px;
+  color: #3CCACE;
+  font-weight: bold;
+  font-size: 22px;
+  position: relative;
+}
+
+// 最下部
+.productLists {
+  margin: 0 0 10px;
+  background-color: #fff;
+  width: calc(100% / 3);
+  & a:hover {
+    opacity: 0.5;
+ }
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: auto;
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: auto;
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+  &__body {
+    background-color: white;
+    color: #333;
+    padding: 16px;
+    
+    &__name {
+      overflow: hidden;
+      line-height: 1.5;
+      font-size: 16px;
+      text-align: left;
+    }
+    &__details {
+      font-size: 16px;
+
+      & ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      & p {
+        font-size: 10px;
+        text-align: left;
+      }
+    }
+  }
+}

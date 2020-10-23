@@ -1,9 +1,34 @@
 =render "items/header"
 %main.mypage-contents.clearfix
-  = render "mypage_side", locals: {user: @user}
+  = render "mypage_side"
   .main-content
-    -# ------ここから
-    ここに本人確認情報を表示させる記述を書いてください
-
-    -# ------ここまで
+    .content-wrapper
+      .contents-title
+        %h2 本人情報
+      .contents
+        .user-datas
+          .user-data
+            %label お名前
+            .user-link
+              %p.user-link__last_name
+                = current_user.last_name
+              %p.user-link__first_name
+                = current_user.first_name
+          .user-data
+            %label お名前カナ
+            .user-link
+              %p.user-link__last_name_kana
+                = current_user.last_name_kana
+              %p.user-link__first_name_kana
+                = current_user.first_name_kana
+          .user-data
+            %label ニックネーム
+            .user-link
+              %p.user-link__nickname
+                = current_user.nickname
+          .user-data
+            %label 生年月日
+            .user-link
+              %p.user-link__birth_date
+                = current_user.birth_date
 =render "items/footer"

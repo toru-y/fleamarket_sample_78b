@@ -5,7 +5,7 @@
         .user-link__iconn
           = image_tag "material/icon/user_avetar.png", class:"user-link__icon"
       %h2.user-link__name
-        = @user.nickname
+        = current_user.nickname
       .user-link__number
         評価  0  出品数  0
   %section.notification-todo
