@@ -1,7 +1,6 @@
 class CreditCardsController < ApplicationController
   require 'payjp'
   before_action :move_to_user_registration, only: [:show, :new, :create, :destroy]
-  before_action :set_user, only: [:show, :new]
   before_action :set_card, only: [:show, :destroy]
 
   def show
@@ -60,9 +59,5 @@ class CreditCardsController < ApplicationController
 
   def set_card
     @card = CreditCard.find(current_user.credit_card.id)
-  end
-  
-  def set_user
-    @user = User.find(current_user.id)
   end
 end
