@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user_params
+  before_action :set_user
   before_action :move_to_root
 
   def identification
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
   
   private
-  def set_user_params
+  def set_user
     @user = User.find(current_user.id)
   end
 
