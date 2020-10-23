@@ -7,20 +7,21 @@
    &.item-info {
       display: flex;
       justify-content: space-between;
-      .__image {
+      .image {
         img {
           border-radius: 4px;
         }
       }
-      .__info {
-        .__name {
+      .info {
+        .name {
           font-size: 14px;
           line-height: 1.4em;
           margin-bottom: 8px;
         }
-        .__price {
-          text-align: right;
+        .price {
+          font-size: 12px;
           span {
+            text-align: right;
             font-size: 15px;
             font-weight: 600;
           }
@@ -42,7 +43,7 @@
     h3 {
       margin-bottom: 12px;
     }
-    .__card-number {
+    .card-number {
       margin-bottom: 24px;
     }
    }
