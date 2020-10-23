@@ -8,8 +8,8 @@
         %br
           フリマアプリです
       .content__btn
-        = link_to image_tag(src= "material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
-        = link_to image_tag(src= "material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
+        = link_to image_tag("material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
+        = link_to image_tag("material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
     .toppicture
   %section.description
     %h2.title
@@ -59,8 +59,8 @@
           %br
             ほしかったあの商品に出会えるかもしれません。
       .btn
-        = link_to image_tag(src= "material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
-        = link_to image_tag(src= "material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
+        = link_to image_tag("material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
+        = link_to image_tag("material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
   %section.features
     %h2.head
       FURIMAの特徴
@@ -95,6 +95,7 @@
           %h3.title
             新規投稿商品
       .productlists
+        - @new_items.each do |item|
         .productlist
           = link_to "#" do
             %figure.productlist--img
