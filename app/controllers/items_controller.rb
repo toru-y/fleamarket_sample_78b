@@ -1,16 +1,18 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :get_category_parents, only: [:index, :new]
 
   def index
     @item = Item.all.order("created_at DESC").limit(10)
+    get_category_parents
   end
 
   def new
     @item = Item.new
     @item.images.new
     #データベースから、親カテゴリーのみ抽出し、配列化
-    @category_parent_array = Category.where(ancestry: nil)
+    # @category_parent_array = Category.where(ancestry: nil)
   end
 
   # 以下全て、formatはjsonのみ
@@ -103,5 +105,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def get_category_parents
+    @category_parent_array = Category.where(ancestry: nil)
   end
 end
