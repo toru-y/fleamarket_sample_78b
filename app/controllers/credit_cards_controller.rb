@@ -2,14 +2,14 @@ class CreditCardsController < ApplicationController
   require 'payjp'
   before_action :move_to_user_registration, only: [:show, :new, :create, :destroy]
   before_action :set_user_params, only: [:show, :new]
+  before_action :set_card, only: [:show, :destroy]
 
   def show
     # 登録したカードを確認する、登録していない場合は空
-    card = CreditCard.find_by(user_id: current_user.id)
-    if card.present?
+    if @card.present?
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @card_info = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.retrieve(@card.card_id)
     end
   end
 
@@ -40,13 +40,11 @@ class CreditCardsController < ApplicationController
   end
   
   def destroy
-    card = CreditCard.find_by(card_id: params[:id])
-
-    if card.present?
+    if @card.present?
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.destroy
+      @card.destroy
       redirect_to action: :new
     else
       redirect_to action: :show
@@ -60,6 +58,10 @@ class CreditCardsController < ApplicationController
     redirect_to new_user_registration unless user_signed_in?
   end
 
+  def set_card
+    @card = CreditCard.find(current_user.credit_card.id)
+  end
+  
   def set_user_params
     @user = User.find(current_user.id)
   end
