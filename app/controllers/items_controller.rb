@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
     @new_items = Item.where(status: true).order("created_at DESC").limit(5)
   end
 
+  def show
+  end
+
   def new
     @item = Item.new
     @item.images.new

@@ -1,0 +1,138 @@
+%nav.breadCrumbs
+  %ul
+    %li
+      = link_to "FURIMA", items_path
+    %li
+      = icon('fas', 'angle-right')
+    %li
+      = link_to @item.category.root.name, "#", class: "category-name"
+    %li
+      = icon('fas', 'angle-right')
+    %li
+      = link_to @item.category.parent.name, "#", class: "category-name"
+    %li
+      = icon('fas', 'angle-right')
+    %li
+      = link_to @item.category.name, "#", class: "category-name"
+    %li
+      = icon('fas', 'angle-right')
+    %li
+      %p
+        = @item.name
+.Main
+  .showMain
+    .contentRight
+      .topContent
+        .itemBox
+          %h2.itemBox__name
+            = @item.name
+          .itemBox__body
+            %ul
+              %li
+                = image_tag @item.images[0].image.url
+                .itemBox__body__images
+                  - @item.images.each do |i|
+                    = image_tag i.image.url, class: "image"
+          .itemBox__price
+            %span
+              ¥
+              = @item.price
+            .itemBox__price-detail
+              %span
+                (税込)
+              %span
+                送料込み
+          .itemDetail
+            = @item.description
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td
+                    = @item.user.nickname
+                %tr
+                  %th カテゴリー
+                  %td
+                    = link_to @item.category.root.name, "#", class: "category-name"
+                    %br/
+                    = link_to @item.category.parent.name, "#", class: "category-name"
+                    %br/
+                    = link_to @item.category.name, "#", class: "category-name"
+                %tr
+                  %th ブランド
+                  %td
+                    = @item.brand
+                %tr
+                  %th 商品のサイズ
+                  %td
+                    = @item.size.name
+                %tr
+                  %th 商品の状態
+                  %td 
+                    = @item.condition.name
+                %tr
+                  %th 配送料の負担
+                  %td
+                    = @item.shipping_fee.name
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to @item.prefecture.name, "#"
+                %tr
+                  %th 発送日の目安
+                  %td
+                    = @item.handling_time.name
+          .optionalArea
+            %ul
+              %li#likeBtn.optionalBtn.likeBtn
+                = icon('fas', 'star')
+                お気に入り 0
+            %ul.optional
+              %li.optionalBtn
+                = link_to "#" do
+                  = icon('fas', 'flag')
+                  不適切な商品の通報
+          .button
+            - if @item.user == current_user
+              = link_to "商品を編集する", edit_item_path, class: 'btn'
+              = link_to "商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: 'btn'
+            - else
+              = link_to "購入画面へ進む", "#", class: 'btn'
+        .commentBox
+          %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
+            %textarea#comment_body{:name => "comment[body]", :required => "required"}
+            %h5.noticeMsg
+              .noticeMsg__top
+                相手のことを考え丁寧なコメントを心がけましょう。
+              %br/
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br/
+            %button.Btn{:name => "button", :type => "submit"}
+              = icon('fas', 'comment')
+              コメントする
+      %ul.links
+        %li
+          = link_to "#" do
+            = icon('fas', 'angle-left')
+            %span
+            前の商品
+        %li
+          = link_to "#" do
+            %span 後ろの商品
+            = icon('fas', 'angle-right')
+      .relatedItems
+        = link_to "#{@item.category.root.name}をもっと見る", "#"
+        .productLists
+          = link_to "#" do
+            %figure.productLists__img
+              = image_tag "material/pict/a007.png"
+            .productLists__body
+              %h3.productLists__body__name product3
+              .productLists__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    = icon('fas', 'star')
+                    0
+                %p (税込)

@@ -1,0 +1,11 @@
+=render "items/header"
+%main.mypage-contents.clearfix
+  = render "mypage_side"
+  .main-content
+    .content-wrapper
+      .contents-title
+        %h2 ログアウトページ
+      .contents
+        .logout-form
+          = link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'logout-btn'
+=render "items/footer"
