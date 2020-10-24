@@ -1,0 +1,68 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to root_path do
+        = image_tag asset_path("material/logo/logo.png")
+  .single-main
+    .l-single-container
+      %h2
+        購入内容の確認
+      .single-main__container__form__frame
+        .field.item-info
+          .image
+            = image_tag @item.images[0].image.url
+          .info
+            .name
+              = @item.name
+            .price
+              税込
+              = @item.shipping_fee.name
+              %span
+                ¥
+                = @item.price
+        .field.pay-amount
+          %label
+            支払い金額
+          .amount
+            ¥
+            = @item.price
+        .field.credit-card
+          .sub-title
+            支払い方法
+          - if @card.present?
+            %h3
+              クレジットカード情報
+            .card-number
+              = "**** **** **** " + @card.last4
+            %h3
+              カードの有効期限
+            .card-exp
+              = @card.exp_month.to_s 
+              = "/"
+              = @card.exp_year.to_s.slice(2,3)
+          - else
+            = link_to "クレジットカードを登録してください", new_credit_card_path
+
+        .field.address  
+          .sub-title
+            配送先
+          - if current_user.address.present?
+            .address
+              = current_user.address.post_code
+              = current_user.address.prefecture.name
+              = current_user.address.city
+              = current_user.address.building_name
+          - else
+            = link_to "配送先を登録してください", new_address_path
+        .field.button
+          - if @card.present? && current_user.address.present? && @item.status
+            = link_to "購入する", purchase_item_path, method: :post, class: "buttun purchase"
+          - else
+            - unless @item.status
+              %span
+                この商品は売却済みです。現在購入はできません。
+            - if @card.blank? || current_user.address.blank?
+              %span
+                商品の購入には、クレジットカード、及び配送先の登録が必要です。
+              = link_to "購入する", "#", class: "buttun purchase disabled"
+  = render "devise/registrations/user_footer"
