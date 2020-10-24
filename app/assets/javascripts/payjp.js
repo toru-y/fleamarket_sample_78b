@@ -2,7 +2,7 @@ $(function(){
   var form = $("#card__form");
   // カード登録ボタンが押されたとき
   $('#card_regist_submit').on('click', function(e){
-    Payjp.setPublicKey("ここに公開鍵のトークン")
+    Payjp.setPublicKey("pk_test_f00e090cfc4548b9ed3fc06f")
     e.preventDefault();
     // 入力されたカード情報を取得
     let card = {
