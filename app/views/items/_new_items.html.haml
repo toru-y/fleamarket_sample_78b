@@ -1,0 +1,19 @@
+.productlist
+  = link_to "#" do
+    %figure.productlist--img
+      -# = image_tag asset_path("material/pict/beef.jpeg")
+      = image_tag item.images[0].image.url
+    .productlist--body
+      %h3.name
+        -# テスト
+        = item.name
+      .details
+        %ul
+          %li
+            -# 10000円
+            = item.price
+          %li
+            = icon("fas","star")
+            1
+        %p
+          (税込)

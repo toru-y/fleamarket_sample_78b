@@ -8,8 +8,8 @@
         %br
           フリマアプリです
       .content__btn
-        = link_to image_tag(src= "material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
-        = link_to image_tag(src= "material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
+        = link_to image_tag("material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
+        = link_to image_tag("material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
     .toppicture
   %section.description
     %h2.title
@@ -59,8 +59,8 @@
           %br
             ほしかったあの商品に出会えるかもしれません。
       .btn
-        = link_to image_tag(src= "material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
-        = link_to image_tag(src= "material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
+        = link_to image_tag("material/icon/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg",class: "abtn"), "#"
+        = link_to image_tag("material/icon/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg",class: "bbtn"), "#"
   %section.features
     %h2.head
       FURIMAの特徴
@@ -95,173 +95,178 @@
           %h3.title
             新規投稿商品
       .productlists
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/beef.jpeg")
-            .productlist--body
-              %h3.name
-                テスト
-              .details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    = icon("fas","star")
-                    1
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/rice.jpeg")
-            .productlist--body
-              %h3.name
-                ee
-              .details
-                %ul
-                  %li
-                    1000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/fish.png")
-            .productlist--body
-              %h3.name
-                product3
-              .details
-                %ul
-                  %li
-                    30000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/salad.png")
-            .productlist--body
-              %h3.name
-                product2
-              .details
-                %ul
-                  %li
-                    20000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/curry.png")
-            .productlist--body
-              %h3.name
-                product1
-              .details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    = icon("fas","star")
-                    1
-                %p
-                  (税込)
-  %section.pickupcontainer
-    %h2.head
-      ピックアップブランド
-    .productbox
-      .producthead
-        = link_to "#" do
-          %h3.title
-            アーカイバ
-      .productlists
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/beef.jpeg")
-            .productlist--body
-              %h3.name
-                テスト
-              .details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    = icon("fas","star")
-                    1
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/rice.jpeg")
-            .productlist--body
-              %h3.name
-                ee
-              .details
-                %ul
-                  %li
-                    1000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/fish.png")
-            .productlist--body
-              %h3.name
-                product3
-              .details
-                %ul
-                  %li
-                    30000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/salad.png")
-            .productlist--body
-              %h3.name
-                product2
-              .details
-                %ul
-                  %li
-                    20000円
-                  %li
-                    = icon("fas","star")
-                    0
-                %p
-                  (税込)
-        .productlist
-          = link_to "#" do
-            %figure.productlist--img
-              = image_tag asset_path("material/pict/curry.png")
-            .productlist--body
-              %h3.name
-                product1
-              .details
-                %ul
-                  %li
-                    10000円
-                  %li
-                    = icon("fas","star")
-                    1
-                %p
-                  (税込)
+        = render partial: "new_items", collection: @new_items, as: "item"
+        -# - @new_items.each do |item|
+        -#   .productlist
+        -#     = link_to item_path(item.id) do
+        -#       %figure.productlist--img
+        -#         -# = image_tag asset_path("material/pict/beef.jpeg")
+        -#         = image_tag item.images[0].image.url
+        -#       .productlist--body
+        -#         %h3.name
+        -#           -# テスト
+        -#           = item.name
+        -#         .details
+        -#           %ul
+        -#             %li
+        -#               -# 10000円
+        -#               = item.price
+        -#             %li
+        -#               = icon("fas","star")
+        -#               1
+        -#           %p
+        -#             (税込)
+          -# .productlist
+          -#   = link_to "#" do
+          -#     %figure.productlist--img
+          -#       = image_tag item.images[0].image.url
+          -#     .productlist--body
+          -#       %h3.name
+          -#         = item.name
+          -#       .details
+          -#         %ul
+          -#           %li
+          -#             = item.price
+          -#           %li
+          -#             = icon("fas","star")
+          -#             0
+          -#         %p
+          -#           (税込)
+          -# .productlist
+          -#   = link_to "#" do
+          -#     %figure.productlist--img
+          -#       = image_tag item.images[0].image.url
+          -#     .productlist--body
+          -#       %h3.name
+          -#         = item.name
+          -#       .details
+          -#         %ul
+          -#           %li
+          -#             = item.price
+          -#           %li
+          -#             = icon("fas","star")
+          -#             0
+          -#         %p
+          -#           (税込)
+          -# .productlist
+          -#   = link_to "#" do
+          -#     %figure.productlist--img
+          -#       = image_tag item.images[0].image.url
+          -#     .productlist--body
+          -#       %h3.name
+          -#         = item.name
+          -#       .details
+          -#         %ul
+          -#           %li
+          -#             = item.price
+          -#           %li
+          -#             = icon("fas","star")
+          -#             0
+          -#         %p
+          -#           (税込)
+          -# .productlist
+          -#   = link_to "#" do
+          -#     %figure.productlist--img
+          -#       = image_tag item.images[0].image.url
+          -#     .productlist--body
+          -#       %h3.name
+          -#         = item.name
+          -#       .details
+          -#         %ul
+          -#           %li
+          -#             = item.price
+          -#           %li
+          -#             = icon("fas","star")
+          -#             1
+          -#         %p
+          -#           (税込)
+  -# %section.pickupcontainer
+  -#   %h2.head
+  -#     ピックアップブランド
+  -#   .productbox
+  -#     .producthead
+  -#       = link_to "#" do
+  -#         %h3.title
+  -#           アーカイバ
+  -#     .productlists
+  -#       .productlist
+  -#         = link_to "#" do
+  -#           %figure.productlist--img
+  -#             = image_tag asset_path("material/pict/beef.jpeg")
+  -#           .productlist--body
+  -#             %h3.name
+  -#               テスト
+  -#             .details
+  -#               %ul
+  -#                 %li
+  -#                   10000円
+  -#                 %li
+  -#                   = icon("fas","star")
+  -#                   1
+  -#               %p
+  -#                 (税込)
+  -#       .productlist
+  -#         = link_to "#" do
+  -#           %figure.productlist--img
+  -#             = image_tag asset_path("material/pict/rice.jpeg")
+  -#           .productlist--body
+  -#             %h3.name
+  -#               ee
+  -#             .details
+  -#               %ul
+  -#                 %li
+  -#                   1000円
+  -#                 %li
+  -#                   = icon("fas","star")
+  -#                   0
+  -#               %p
+  -#                 (税込)
+  -#       .productlist
+  -#         = link_to "#" do
+  -#           %figure.productlist--img
+  -#             = image_tag asset_path("material/pict/fish.png")
+  -#           .productlist--body
+  -#             %h3.name
+  -#               product3
+  -#             .details
+  -#               %ul
+  -#                 %li
+  -#                   30000円
+  -#                 %li
+  -#                   = icon("fas","star")
+  -#                   0
+  -#               %p
+  -#                 (税込)
+  -#       .productlist
+  -#         = link_to "#" do
+  -#           %figure.productlist--img
+  -#             = image_tag asset_path("material/pict/salad.png")
+  -#           .productlist--body
+  -#             %h3.name
+  -#               product2
+  -#             .details
+  -#               %ul
+  -#                 %li
+  -#                   20000円
+  -#                 %li
+  -#                   = icon("fas","star")
+  -#                   0
+  -#               %p
+  -#                 (税込)
+  -#       .productlist
+  -#         = link_to "#" do
+  -#           %figure.productlist--img
+  -#             = image_tag asset_path("material/pict/curry.png")
+  -#           .productlist--body
+  -#             %h3.name
+  -#               product1
+  -#             .details
+  -#               %ul
+  -#                 %li
+  -#                   10000円
+  -#                 %li
+  -#                   = icon("fas","star")
+  -#                   1
+  -#               %p
+  -#                 (税込)
 %aside.appbanner
