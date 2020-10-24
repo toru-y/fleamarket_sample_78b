@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
+    @new_items = Item.where(status: true).order("created_at DESC").limit(5)
   end
 
   def show
