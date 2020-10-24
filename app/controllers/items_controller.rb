@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
 
   def index
-    @item = Item.all.order("created_at DESC").limit(5)
+    @new_items = Item.where(status: true).order("created_at DESC").limit(5)
   end
 
   def new
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
-    # binding.pry
   end
 
   def update
