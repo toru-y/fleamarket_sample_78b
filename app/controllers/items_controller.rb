@@ -61,6 +61,30 @@ class ItemsController < ApplicationController
     end
   end
 
+  def confirm
+    card = get_my_payjp_token
+    if card.present?
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @card = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  def purchase
+    card = get_my_payjp_token
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      customer: card.customer_id,
+      currency: 'jpy',
+    )
+    if @item.update_attribute(:status, 0)
+      redirect_to root_path
+    else
+      redirect_to confirm_item_path(@item.id)
+    end
+end
+
   private
   def item_params
     params.require(:item).permit(
@@ -104,5 +128,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  end
+
+  def get_my_payjp_token
+    CreditCard.find_by(user_id: current_user.id)
   end
 end

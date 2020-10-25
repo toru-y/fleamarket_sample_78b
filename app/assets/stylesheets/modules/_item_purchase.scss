@@ -1,0 +1,74 @@
+
+
+.single-container .single-main__container__form__frame {
+  .field {
+    border-bottom: 1px solid rgb(245, 245, 245);
+    padding: 32px 0;
+   &.item-info {
+      display: flex;
+      justify-content: space-between;
+      .image {
+        img {
+          border-radius: 4px;
+        }
+      }
+      .info {
+        .name {
+          font-size: 14px;
+          line-height: 1.4em;
+          margin-bottom: 8px;
+        }
+        .price {
+          font-size: 12px;
+          span {
+            text-align: right;
+            font-size: 15px;
+            font-weight: 600;
+          }
+        }
+      }
+    
+    }
+   &.pay-amount {
+     display: flex;
+     justify-content: space-between;
+     font-size: 18px;
+    font-weight: 600;
+   }
+   &.credit-card, &.address {
+    .sub-title {
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    h3 {
+      margin-bottom: 12px;
+    }
+    .card-number {
+      margin-bottom: 24px;
+    }
+   }
+   &.button {
+    span {
+      margin-bottom: 10px;
+      display: block;
+    }
+     a.buttun.purchase {
+       display: block;
+       margin: auto;
+       background-color: red;
+       width: 100%;
+       height: 48px;
+       border-radius: 4px;
+       line-height: 48px;
+       text-align: center;
+       font-size: 17px;
+       color: white;
+       &.disabled {
+         background-color: grey;
+         pointer-events: none;
+       }
+     }
+   }
+  }
+}
+
