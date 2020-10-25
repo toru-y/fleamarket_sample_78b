@@ -100,7 +100,7 @@
                 = link_to "商品を編集する", edit_item_path, class: 'btn'
                 = link_to "商品を削除する", item_path(@item), method: :delete, data: {confirm: "削除しますか？"}, class: 'btn'
               - else
-                = link_to "購入画面へ進む", "#", class: 'btn'
+                = link_to "購入画面へ進む", confirm_item_path(@item.id), class: 'btn'
           .commentBox
             %form#new_comment.new_comment{"accept-charset" => "UTF-8", :action => "#", :method => "post"}
               %textarea#comment_body{:name => "comment[body]", :required => "required"}
