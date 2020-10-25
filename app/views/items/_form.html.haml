@@ -58,7 +58,6 @@
               カテゴリー
               %span.form--caution 必須
               .select--wrap__category
-                -# = f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, {class:"select--wrap__default"}
                 - if controller.action_name == 'new'
                   .select--wrap__category__parent
                     = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択してください"}, {id: 'parent_category', class:"select--wrap__category__name"}
