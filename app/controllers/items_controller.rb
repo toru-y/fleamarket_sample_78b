@@ -32,8 +32,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to item_path(@item.id)
     else
+      flash[:notice] = '商品の出品に失敗しました。登録内容を確認してください。'
       redirect_to new_item_path
     end 
   end
@@ -48,6 +49,7 @@ class ItemsController < ApplicationController
     if @item.update(item_update_params)
       redirect_to root_path
     else
+      flash[:notice] = '商品情報の更新に失敗しました。登録内容を確認してください。'
       @item = Item.find(params[:id])
       render :edit
     end
@@ -61,7 +63,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def confirm
+  def purchase_confirm
     card = get_my_payjp_token
     if card.present?
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -71,15 +73,21 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    card = get_my_payjp_token
-    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
-      amount: @item.price,
-      customer: card.customer_id,
-      currency: 'jpy',
-    )
+    begin
+      card = get_my_payjp_token
+      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp::Charge.create(
+        amount: @item.price,
+        customer: card.customer_id,
+        currency: 'jpy',
+      )
+    rescue StandardError => e
+      flash[:notice] = '申し訳ありません。商品の購入でエラーが発生しました。カスタマーサービスまでお問い合わせください。'
+      redirect_to confirm_item_path(@item.id)
+    end
+
     if @item.update_attribute(:status, 0)
-      redirect_to root_path
+      render "purchase_completed"
     else
       redirect_to confirm_item_path(@item.id)
     end
