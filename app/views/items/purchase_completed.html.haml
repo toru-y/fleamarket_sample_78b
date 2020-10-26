@@ -1,0 +1,38 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to root_path do
+        = image_tag asset_path("material/logo/logo.png")
+  .single-main
+    .l-single-container
+      %h2
+        購入完了
+      .single-main__container__form__frame
+        .ec-info
+          %span
+            FURIMAからのメッセージ
+          .ec-info__message
+            ご利用ありがとうございます。商品の購入が完了しました。
+            後ほど出品者からメールが届きますので、ご確認ください。
+            またのご利用を待ちしております。
+          .ec-info__img
+            = image_tag "material/pict/aisatsu_arigatou.png"
+        .item-info 
+          -# .itme-info__img
+          -#   = image_tag @item.images[0].image.url
+          .item-info__name
+            %span
+              購入した商品：
+            = @item.name
+          .item-info__handling-time
+            %span
+              お届けまでの日数：
+            = @item.handling_time.name
+          .item-info__seller
+            %span
+              出品者
+            = @item.user.nickname
+        .return-to-top
+          = link_to "買い物を続ける", root_path, class: "rtn btn"
+        
+  = render "devise/registrations/user_footer"

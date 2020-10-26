@@ -86,11 +86,12 @@ class ItemsController < ApplicationController
       redirect_to confirm_item_path(@item.id)
     end
 
-    if @item.update_attribute(:status, 0)
-      render "purchase_completed"
-    else
-      redirect_to confirm_item_path(@item.id)
-    end
+    render "purchase_completed"
+    # if @item.update_attribute(:status, 0)
+    #   render "purchase_completed"
+    # else
+    #   redirect_to confirm_item_path(@item.id)
+    # end
 end
 
   private
