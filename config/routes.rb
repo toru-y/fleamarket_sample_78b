@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     
     member do
-      get 'confirm'
+      get 'purchase_confirm'
       post 'purchase'
     end
   end
