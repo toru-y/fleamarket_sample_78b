@@ -2,6 +2,7 @@ class CreditCardsController < ApplicationController
   require 'payjp'
   before_action :move_to_user_registration, only: [:show, :new, :create, :destroy]
   before_action :set_card, only: [:show, :destroy]
+  before_action :get_category_parents, only:[:show, :new]
 
   def show
     # 登録したカードを確認する、登録していない場合は空
@@ -59,5 +60,9 @@ class CreditCardsController < ApplicationController
 
   def set_card
     @card = CreditCard.find(current_user.credit_card.id)
+  end
+
+  def get_category_parents
+    @category_parent_array = Category.where(ancestry: nil)
   end
 end
