@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:edit, :destroy]
-
+  befoer_action :get_category_parents only: [:new, :edit]
   def new
     @address = Address.new
   end
@@ -40,5 +40,9 @@ class AddressesController < ApplicationController
 
   def set_address
     @address = Address.find_by(user_id: current_user.id)
+  end
+
+  def get_category_parents
+    @category_parent_array = Category.where(ancestry: nil)
   end
 end
