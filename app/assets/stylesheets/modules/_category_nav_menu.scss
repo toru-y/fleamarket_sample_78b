@@ -23,7 +23,9 @@ $hoverColor:#ff9933;
   color: $fontColor;
   text-decoration: none;
 }
+
 .category__parents {
+  z-index: 10;
   position: absolute;
   top: 25px;
   min-height: 480px;
@@ -33,6 +35,7 @@ $hoverColor:#ff9933;
     display: none;
   }
   .parents__item {
+    transition-timing-function: 0.3s;
     @include itemStyle();
     a {
       @include btnStyle();
@@ -41,11 +44,14 @@ $hoverColor:#ff9933;
       }
     }
     .category__children {
+      z-index: 10;
+      transition-timing-function: 0.3s;
       @include subcatStyle();
       &.display--none {
         display: none;
       }
       .children__item {
+        transition-timing-function: 0.3s;
         @include itemStyle();
         a {
           @include btnStyle();
@@ -54,6 +60,8 @@ $hoverColor:#ff9933;
           }
         }
         .category__grand-children {
+          z-index: 10;
+          transition-timing-function: 0.3s;
           @include subcatStyle();
           .grand-children__item {
             @include itemStyle();
