@@ -142,4 +142,8 @@ end
   def get_my_payjp_token
     CreditCard.find_by(user_id: current_user.id)
   end
+
+  def get_category_parents
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 end
