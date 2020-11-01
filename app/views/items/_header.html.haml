@@ -39,7 +39,7 @@
           %li.login__form
             = link_to "サインアウト", destroy_user_session_path, method: :delete, id: "login__btn"
           %li.login__form--new
-            = link_to "マイページ", "#", id: "new__btn"
+            = link_to "マイページ", mypage_users_path, id: "new__btn"
         - else
           %li.login__form
             = link_to "ログイン", new_user_session_path, id: "login__btn"
