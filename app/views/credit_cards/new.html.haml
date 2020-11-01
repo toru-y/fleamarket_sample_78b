@@ -1,0 +1,47 @@
+=render "items/header"
+%main.mypage-contents.clearfix
+  = render "users/mypage_side"
+  .main-content
+    .content-wrapper
+      .contents-title
+        %h2 クレジットカード情報入力
+      .contents
+        .form-area
+          = form_with model: @card, method: :post, class: 'card-form', html: { name: "inputForm" } do |f|
+            .card-form__input-field
+              .label
+                = f.label :カード番号, class: 'label'
+                %span
+                  必須
+              = f.text_field :card_number, type: 'text', id: 'card-number', class: 'input-number text-field', placeholder: '4242424242424242'.to_i, maxlength: "16"
+              %figure
+                = image_tag "material/logo/visa.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/master-card.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/saison-card.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/jcb.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/american_express.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/dinersclub.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/discover.svg",alt: "visa", class: "card-logo"
+            .card-form__input-field
+              .label
+                = f.label :有効期限, class: 'label'
+                %span
+                  必須
+              .cards-expire
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'card-exp-month', class: 'input-expire select'
+                %span.expire-text
+                  月
+                = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]],{} , id: 'card-exp-year', class: 'input-expire select'
+                %span.expire-text
+                  年
+            .card-form__input-field
+              .label
+                = f.label :セキュリティコード, class: 'label'
+                %span
+                  必須
+              = f.text_field :cvc, type: 'text', id:'card-cvc', class: 'input-number text-field', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+              #card_token
+              -# - f.text_field :payjpToken, type: 'hidden', id: 'test'
+            .card-form__submit-btn
+              = f.submit '登録', class: 'card-registration submit btn', id: 'card_regist_submit'
+=render "items/footer"

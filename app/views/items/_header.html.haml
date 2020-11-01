@@ -2,7 +2,7 @@
   .header--inner
     .search
       %h1.search__icon
-        %a{href: "#"}
+        %a{href: "/"}
           = image_tag asset_path("material/logo/logo.png")
           -# %img{src: "assets/material/logo/logo.png"}
       .search__body
@@ -15,17 +15,33 @@
     .nav
       %ul.nav--left
         %li.nav__category
-          カテゴリー
+          = link_to "カテゴリー", "#", id:"category__btn"
+          .category__tree
+            %ul.category__parents.display--none
+              - @category_parent_array.each do |parent|
+                %li.parents__item
+                  = link_to "#" do
+                    = parent.name
+                  %ul.category__children.display--none
+                    - parent.children.each do |children|
+                      %li.children__item
+                        = link_to "#" do
+                          = children.name
+                        %ul.category__grand-children.display--none
+                          - children.children.each do |grand_children|
+                            %li.grand-children__item
+                              = link_to "#" do
+                                = grand_children.name
         %li.nav__brand
-          ブランド
+          %a#brand__btn{href: "#"} ブランド
       %ul.nav--right
         - if user_signed_in?
           %li.login__form
-            = link_to "サインアウト", destroy_user_session_path, method: :delete
+            = link_to "サインアウト", destroy_user_session_path, method: :delete, id: "login__btn"
           %li.login__form--new
-            = link_to "マイページ", "#"
+            = link_to "マイページ", mypage_users_path, id: "new__btn"
         - else
           %li.login__form
-            = link_to "ログイン", new_user_session_path
+            = link_to "ログイン", new_user_session_path, id: "login__btn"
           %li.login__form--new
-            = link_to "新規会員登録", new_user_registration_path
+            = link_to "新規会員登録", new_user_registration_path, id: "new__btn"

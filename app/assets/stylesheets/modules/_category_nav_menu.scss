@@ -1,0 +1,76 @@
+$fontColor:#333333;
+$hoverColor:#ff9933;
+
+@mixin subcatStyle () {
+  position: absolute;
+  left: 220px;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  background-color: #fff;
+}
+@mixin itemStyle () {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #f8f8f8;
+  width: 220px;
+}
+@mixin btnStyle () {
+  display: block;
+  line-height: 35px;
+  width: 220px;
+  color: $fontColor;
+  text-decoration: none;
+}
+
+.category__parents {
+  z-index: 10;
+  position: absolute;
+  top: 25px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  &.display--none {
+    display: none;
+  }
+  .parents__item {
+    transition-timing-function: 0.3s;
+    @include itemStyle();
+    a {
+      @include btnStyle();
+      &:hover {
+        color: $hoverColor;
+      }
+    }
+    .category__children {
+      z-index: 10;
+      transition-timing-function: 0.3s;
+      @include subcatStyle();
+      &.display--none {
+        display: none;
+      }
+      .children__item {
+        transition-timing-function: 0.3s;
+        @include itemStyle();
+        a {
+          @include btnStyle();
+          &:hover {
+            color: $hoverColor;
+          }
+        }
+        .category__grand-children {
+          z-index: 10;
+          transition-timing-function: 0.3s;
+          @include subcatStyle();
+          .grand-children__item {
+            @include itemStyle();
+          }
+          &.display--none {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.productlist
+  = link_to item_path(item.id) do
+    %figure.productlist--img
+      = image_tag item.images[0].image.url
+    .productlist--body
+      %h3.name
+        = item.name
+      .details
+        %ul
+          %li
+            = item.price
+          %li
+            = icon("fas","star")
+            1
+        %p
+          (税込)
