@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_update_params)
-      redirect_to root_path
+      redirect_to item_path(@item.id)
     else
       flash[:notice] = '商品情報の更新に失敗しました。登録内容を確認してください。'
       @item = Item.find(params[:id])
