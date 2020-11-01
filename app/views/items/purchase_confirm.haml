@@ -41,7 +41,7 @@
               = "/"
               = @card.exp_year.to_s.slice(2,3)
           - else
-            = link_to "クレジットカードを登録してください", new_credit_card_path
+            = link_to "クレジットカードを登録してください", new_credit_card_path, data: {"turbolinks" => false}
 
         .field.address  
           .sub-title

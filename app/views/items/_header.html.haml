@@ -2,7 +2,7 @@
   .header--inner
     .search
       %h1.search__icon
-        %a{href: "/"}
+        = link_to root_path, data: {"turbolinks" => false} do
           = image_tag asset_path("material/logo/logo.png")
           -# %img{src: "assets/material/logo/logo.png"}
       .search__body
