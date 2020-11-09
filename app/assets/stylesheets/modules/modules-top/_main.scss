@@ -247,12 +247,16 @@
         }
       }
       .productlists{
-        width: 780px;
+        // min-width: 220px;
+        // max-width: calc(220px*5);
+        text-align: center;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
+        flex-grow: 1;
+        // justify-content: space-around;
+        justify-content: center;
         .productlist{
-          width: 220px;
+          // width: 220px;
           display: inline-block;
           float: left;
           a{
