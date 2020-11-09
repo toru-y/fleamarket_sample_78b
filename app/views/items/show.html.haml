@@ -31,7 +31,10 @@
             .itemBox__body
               %ul
                 %li
-                  = image_tag @item.images[0].image.url
+                  - if @item.images[0].blank?
+                    = image_tag "material/pict/no_images.png"
+                  - else
+                    = image_tag @item.images[0].image.url
                   .itemBox__body__images
                     - @item.images.each do |i|
                       = image_tag i.image.url, class: "image"
