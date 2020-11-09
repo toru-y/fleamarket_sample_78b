@@ -95,5 +95,6 @@
           %h3.title
             新規投稿商品
       .productlists
-        = render partial: "new_items", collection: @new_items, as: "item"
+        - if @new_items.present?
+          = render partial: "new_items", collection: @new_items, as: "item"
 %aside.appbanner
