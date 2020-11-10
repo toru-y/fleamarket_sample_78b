@@ -55,7 +55,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @card = CreditCard.new(customer_id: customer.id, card_id: customer.default_card)
     @card[:user_id] = @user.id
-    binding.pry
     unless @card.valid?
       flash.now[:alert] = @card.errors.full_messages
       render :new_creditcard and return

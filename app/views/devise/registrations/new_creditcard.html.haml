@@ -60,7 +60,7 @@
               #card_token
               -# - f.text_field :payjpToken, type: 'hidden', id: 'test'
             .form-group
-              = f.submit '登録', class: 'btn-default btn-red', id: 'card_regist_submit'
+              = f.submit '登録する', class: 'btn-default btn-red', id: 'card_regist_submit'
             .form-group
               = link_to '始めからやり直す', new_user_registration_path
   = render "devise/registrations/user_footer"

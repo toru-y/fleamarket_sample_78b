@@ -20,7 +20,7 @@
   .single-main
     .l-single-container
       %h2
-        会員情報入力
+        お届け先住所登録
       = render "devise/shared/error_messages", resource: @user
       .single-main__container__form__frame
         = form_with model: @address, url: addresses_path, method: :post, class: 'address-form', local: true, html: { name: "inputForm" } do |f|
@@ -55,7 +55,7 @@
               任意
             = f.text_field :phone_number, type: 'text', class: 'form-group__input', placeholder: '例）09012345678'
           .form-group
-            = f.submit '登録', class: 'btn-default btn-red'
+            = f.submit '次へ進む', class: 'btn-default btn-red'
           .form-group
             = link_to '始めからやり直す', new_user_registration_path
   = render "devise/registrations/user_footer"
