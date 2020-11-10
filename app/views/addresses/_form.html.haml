@@ -5,7 +5,7 @@
         発送元・お届け先住所変更
     .contents
       .form-area
-        = form_with model: @address, method: :post, class: 'address-form', html: { name: "inputForm" } do |f|
+        = form_with model: @address, class: 'address-form', html: { name: "inputForm" } do |f|
           .address-form__input-field
             .label
               = f.label :郵便番号, class: 'label'
@@ -40,7 +40,7 @@
               %span.any
                 任意
             .form
-              = f.text_field :building_number, type: 'text', class: 'text-field', placeholder: '例）柳ビル103'
+              = f.text_field :building_name, type: 'text', class: 'text-field', placeholder: '例）柳ビル103'
           .address-form__input-field
             .label
               = f.label :電話番号, class: 'label'
@@ -54,4 +54,3 @@
             .action
               - if @address.persisted?
                 = link_to "削除", address_path(@address), method: :delete, class: "btn--gray"
-          

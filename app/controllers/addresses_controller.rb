@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:edit, :destroy]
+  before_action :set_address, only: [:edit, :update, :destroy]
   before_action :get_category_parents, only: [:new, :edit]
   def new
     @address = Address.new

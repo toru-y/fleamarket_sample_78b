@@ -1,0 +1,61 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to root_path do
+        = image_tag asset_path("material/logo/logo.png")
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text--active
+          お届け先住所入力
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          支払い方法
+          .single-header__progress__round    
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
+  .single-main
+    .l-single-container
+      %h2
+        会員情報入力
+      = render "devise/shared/error_messages", resource: @user
+      .single-main__container__form__frame
+        = form_with model: @address, url: addresses_path, method: :post, class: 'address-form', local: true, html: { name: "inputForm" } do |f|
+          .form-group
+            = f.label :郵便番号
+            %span.form-group__require
+              必須
+            = f.text_field :post_code, type: 'text', class: 'form-group__input', placeholder: '例）123-4567', maxlength: "8"
+          .form-group
+            = f.label :都道府県
+            %span.form-group__require
+              必須
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"},{class:"form-group__input"}
+          .form-group
+            = f.label :市区町村
+            %span.form-group__require
+              必須
+            = f.text_field :city, type: 'text', class: 'form-group__input', placeholder: '例）横浜市緑区'
+          .form-group
+            = f.label :番地
+            %span.form-group__require
+              必須
+            = f.text_field :house_number, type: 'text', class: 'form-group__input', placeholder: '例）青山1-1-1'
+          .form-group
+            = f.label :建物名
+            %span.any
+              任意
+            = f.text_field :building_name, type: 'text', class: 'form-group__input', placeholder: '例）柳ビル103'
+          .form-group
+            = f.label :電話番号
+            %span.any
+              任意
+            = f.text_field :phone_number, type: 'text', class: 'form-group__input', placeholder: '例）09012345678'
+          .form-group
+            = f.submit '登録', class: 'btn-default btn-red'
+          .form-group
+            = link_to '始めからやり直す', new_user_registration_path
+  = render "devise/registrations/user_footer"

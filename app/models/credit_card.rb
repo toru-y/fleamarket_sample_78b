@@ -1,5 +1,5 @@
 class CreditCard < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
-  validates :user, :customer_id, :card_id, presence: true
+  validates :customer_id, :card_id, presence: true
 end

@@ -3,6 +3,20 @@
     %h1
       =link_to root_path do
         = image_tag asset_path("material/logo/logo.png")
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          お届け先住所入力
+          .single-header__progress__round
+        %li.single-header__progress__text
+          支払い方法
+          .single-header__progress__round    
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
   .single-main
     .l-single-container
       %h2

@@ -1,0 +1,66 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to root_path do
+        = image_tag asset_path("material/logo/logo.png")
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text--active
+          お届け先住所入力
+          .single-header__progress__round--red
+        %li.single-header__progress__text--active
+          支払い方法
+          .single-header__progress__round--red
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
+  .single-main
+    .l-single-container
+      %h2
+        クレジットカード情報入力
+      = render "devise/shared/error_messages", resource: @user
+      .contents
+        .form-area
+          = form_with model: @card, url: creditcards_path, method: :post, class: 'card-form', local: true, html: { name: "inputForm" } do |f|
+            .form-group.card-form__input-field
+              .label
+                = f.label :カード番号, class: 'label'
+                %span
+                  必須
+              = f.text_field :card_number, type: 'text', id: 'card-number', class: 'input-number text-field form-group__input', placeholder: '4242424242424242'.to_i, maxlength: "16"
+              %figure
+                = image_tag "material/logo/visa.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/master-card.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/saison-card.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/jcb.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/american_express.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/dinersclub.svg",alt: "visa", class: "card-logo"
+                = image_tag "material/logo/discover.svg",alt: "visa", class: "card-logo"
+            .form-group.card-form__input-field
+              .label
+                = f.label :有効期限, class: 'label'
+                %span
+                  必須
+              .cards-expire
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , id: 'card-exp-month', class: 'input-expire select'
+                %span.expire-text
+                  月
+                = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]],{} , id: 'card-exp-year', class: 'input-expire select'
+                %span.expire-text
+                  年
+            .form-group.card-form__input-field
+              .label
+                = f.label :セキュリティコード, class: 'label'
+                %span
+                  必須
+              = f.text_field :cvc, type: 'text', id:'card-cvc', class: 'input-number text-field', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+              #card_token
+              -# - f.text_field :payjpToken, type: 'hidden', id: 'test'
+            .form-group
+              = f.submit '登録', class: 'btn-default btn-red', id: 'card_regist_submit'
+            .form-group
+              = link_to '始めからやり直す', new_user_registration_path
+  = render "devise/registrations/user_footer"

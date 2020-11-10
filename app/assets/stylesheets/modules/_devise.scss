@@ -45,7 +45,7 @@ body {
       }
     }
   }
-
+// テスト追加
 
   // 新規登録・ログイン　メインフレーム
   .single-main{
@@ -92,9 +92,15 @@ body {
   }
 }
 
+
+
 // 入力項目
 .form-group{
   margin-top: 32px;
+  & a {
+    display: inline-block;
+    text-align: center;
+  }
   & label{
     font-weight: 600;
     display: inline-block;
@@ -103,6 +109,15 @@ body {
   // 必須項目
   &__require{
     background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+  }
+  span.any {
+    background: #ccc;
     margin: 0 0 0 8px;
     padding: 2px 4px;
     border-radius: 2px;
@@ -150,7 +165,6 @@ body {
     line-height: 1.5;
     color: #333;
   }
-
 }
 
 .checkbox-default{
