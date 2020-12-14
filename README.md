@@ -27,8 +27,6 @@ $ git clone https://github.com/tetzng/freemarket_sample_59a.git
 $ cd freemarket_sample_59a
 $ bundle install
 ```
-## License
-MIT
 
 # table declare
 ## users
@@ -52,11 +50,8 @@ MIT
 ## credit_card
 |Column|Type|Options|
 |------|----|-------|
-<!-- usersテーブルのid -->
 |user|references|null: false, foreign_key: true|
-<!-- payjpの顧客id -->
 |customer_id|string|null: false|
-<!-- payjpのデフォルトカードid -->
 |card_id|string|null: false|
 ### Association
 - belongs_to :user
