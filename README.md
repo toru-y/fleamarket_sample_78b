@@ -1,28 +1,36 @@
-# README
+### README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Tfreemarket_sample_59a
+フリマアプリのクローンサイト。
 
-Things you may want to cover:
+## Description
+フリマアプリのクローンサイト。誰でも簡単に売り買いが楽しめるフリマアプリの機能を再現したページ。 ユーザー登録、商品出品、商品購入などの機能が再現されていますが、実際の取引はできません。
 
-* Ruby version
 
-* System dependencies
+## Features
+- haml/SASS記法と、命名規則BEMを使ったマークアップ
+- ウィザード形式を用いたユーザー登録フォーム
+- SNS認証による新規登録、ログイン
+- ajaxを使用した非同期処理
+- pay.jpによる購入処理
+- capistranoによるAWS EC2への自動デプロイ
+- ActiveStorageを使用しAWS S3への画像アップロード
+- RSpecを使った単体テスト
 
-* Configuration
+## Requirement
+- Ruby 2.5.1
+- Rails 5.2.3
 
-* Database creation
+## Installation
+```
+$ git clone https://github.com/tetzng/freemarket_sample_59a.git
+$ cd freemarket_sample_59a
+$ bundle install
+```
+## License
+MIT
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+# table declare
 ## users
 |Column|Type|Options|
 |------|----|-------|
