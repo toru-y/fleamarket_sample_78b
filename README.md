@@ -2,10 +2,10 @@
 
 # freemarket_sample_78a
 フリマアプリのクローンサイト。
+![image](https://user-images.githubusercontent.com/37774289/102110611-b777a000-3e78-11eb-9ec9-65a887132106.png)
 
 ## Description
 フリマアプリのクローンサイト。誰でも簡単に売り買いが楽しめるフリマアプリの機能を再現したページ。 ユーザー登録、商品出品、商品購入などの機能が再現されていますが、実際の取引はできません。
-
 
 ## Features
 - haml/SASS記法と、命名規則BEMを使ったマークアップ
